@@ -1,0 +1,391 @@
+@import "base.less";
+
+@blockWidth: 800px;
+@visionWidth: 500px;
+
+@blockWidth2: 640px;
+@visionWidth2: 400px;
+
+@blockWidth3: 420px;
+@visionWidth3: 280px;
+
+@blockWidth4: 260px;
+@visionWidth4: 200px;
+
+@blockHeight: 800px;
+@blockHeight2: 1000px;
+@blockHeight3: 1200px;
+@blockHeight4: 1400px;
+@blockHeight5: 1600px;
+
+header {
+  position: fixed;
+  display: block;
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden;
+  h2 {
+    display: inline-block;
+    width: @blockWidth;
+    line-height: 60px;
+    vertical-align: middle;
+    text-align: left;
+  }
+  nav {
+    text-align: center;
+  }
+  ul {
+    text-align: left;
+  }
+}
+
+#visionimg {
+  width: auto;
+}
+
+#sitevision {
+  display: inline-block;
+  text-align: right;
+  width: @visionWidth;
+  color: #FFFFFF;
+  font-size: 20px;
+  white-space: pre;
+  position: relative;
+  top: -140px;
+}
+
+#sitevisionsub {
+  display: inline-block;
+  text-align: right;
+  width: @visionWidth;
+  clear: both;
+  color: #FFFFFF;
+  font-size: 16px;
+  position: relative;
+  top: -130px;
+}
+
+#about-nav {
+  a {
+    width: 80px;
+    text-align: center;
+  }
+  ul:after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #FFFFFF;
+    left: 0;
+    bottom: 3px;
+    .border-radius(3px);
+    .transition(all .2s ease-in);
+  }
+  &.nav-banner ul:after {
+    width: 120px;
+  }
+  &.nav-space ul:after {
+    width: 120px;
+    left: 120px;
+  }
+  &.nav-contact ul:after {
+    width: 120px;
+    left: 240px;
+  }
+}
+
+#about {
+  display: block;
+  height: @blockHeight;
+  box-sizing: border-box;
+  padding-top: 100px;
+  margin-top: 60px;
+  background: #C4415D;
+  color: @lightTextColor;
+  a, a:link {
+    color: @lightTextColor;
+  }
+  .fa-inverse {
+    color: #A1BA94;
+  }
+  .column {
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px;
+  }
+  ul {
+    list-style: none;
+  }
+  text-align: center;
+}
+
+#content-contact {
+  ul li {
+    margin-top: 20px;
+  }
+}
+
+#announcements {
+  display: block;
+  height: @blockHeight;
+  background: #EDDEAB;
+  color: @darkTextColor;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 100px;
+  a, a:link {
+    color: @darkTextColor;
+  }
+  .container {
+    display: inline-block;
+    width: @blockWidth;
+    text-align: left;
+  }
+  .newscontent {
+    //display: flex;
+    padding: 10px;
+    background: linear-gradient(rgba(161, 186, 148, 0.3), rgba(161, 186, 148, 0.6));
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    .thumb {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      vertical-align: top;
+    }
+    .content {
+      //flex-grow: 3;
+      display: inline-block;
+      vertical-align: top;
+      padding-left: 10px;
+    }
+  }
+
+  .newsdescription {
+    white-space: pre;
+  }
+}
+
+#activities {
+  display: block;
+  height: @blockHeight;
+  padding-top: 150px;
+  box-sizing: border-box;
+  text-align: center;
+  background: #A1BA94;
+  color: @darkTextColor;
+  a, a:link {
+    color: @darkTextColor;
+    text-decoration: none;
+  }
+
+  img {
+    //max-width: 800px;
+    max-height: 300px;
+  }
+  .container {
+    display: inline-block;
+    width: @blockWidth;
+    text-align: left;
+  }
+  #worship {
+    display: inline-block;
+    width: @blockWidth;
+    text-align: left;
+    font-size: 19px;
+    padding-bottom: 20px;
+    font-weight: bolder;
+  }
+  .groupcontent {
+    padding: 10px;
+    background: linear-gradient(rgba(237, 222, 171, 0.6), rgba(237, 222, 171, 0.3));
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+  .groupdescription {
+    white-space: pre;
+  }
+}
+
+#contact {
+  display: block;
+  height: @blockHeight;
+  box-sizing: border-box;
+  padding-top: 100px;
+  background: #372D3B;
+  color: @lightTextColor;
+  text-align: center;
+  .container {
+    display: inline-block;
+  }
+  a, a:link {
+    color: @lightTextColor;
+    text-decoration: none;
+  }
+  .fa-square {
+    color: @lightTextColor;
+  }
+  .fa-inverse {
+    color: @darkTextColor;
+  }
+  .column {
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px;
+    text-align: left;
+  }
+  .contactlabel {
+    display: inline-block;
+  }
+  ul {
+    list-style: none;
+    li {
+      padding-bottom: 12px;
+    }
+  }
+}
+
+#scroll-tip {
+  position: fixed;
+  display: block;
+  margin: auto;
+  width: 120px;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  text-align: center;
+  //pointer-events: none;
+  .transition(opacity .25s ease-in-out);
+}
+
+@media only screen and (max-width: @breakDesktop) {
+  header h2 {
+    width: @blockWidth2;
+  }
+  #visionimg {
+    width: @blockWidth2;
+  }
+  #sitevision, #sitevisionsub {
+    width: @visionWidth2;
+    font-size: 100%;
+  }
+  #sitevision {
+    top: -100px;
+  }
+  #sitevisionsub {
+    top: -90px;
+  }
+  #announcements, #activities, #contact {
+    .container {
+      width: @blockWidth2;
+    }
+  }
+  #contact {
+    height: auto;
+  }
+  #activities #worship {
+      width: @blockWidth2;
+  }
+}
+
+@media only screen and (max-width: @breakTablet) {
+  header h2 {
+    width: @blockWidth3;
+  }
+  #visionimg {
+    width: @blockWidth3;
+  }
+  #sitevision, #sitevisionsub {
+    width: @visionWidth3;
+    font-size: 90%;
+  }
+  #sitevision {
+    top: -70px;
+  }
+  #sitevisionsub {
+    top: -60px;
+  }
+  #announcements, #activities, #contact {
+    .container {
+      width: @blockWidth3;
+    }
+  }
+  #about, #announcements, #activities, #contact {
+    height: auto;
+    padding-bottom: 60px;
+  }
+  #activities #worship {
+      width: @blockWidth3;
+  }
+  #announcements .newscontent .content {
+    padding-top: 10px;
+    padding-left: 0;
+  }
+  aside {
+    right: 20px;
+  }
+}
+
+@media only screen and (max-width: @breakMobileLandscape) {
+  header h2 {
+    width: @blockWidth4;
+  }
+  #visionimg {
+    width: @blockWidth4;
+  }
+  #sitevision, #sitevisionsub {
+    width: @visionWidth4;
+    font-size: 80%;
+    margin-right: 30px;
+  }
+  #sitevision {
+    top: -40px;
+  }
+  #sitevisionsub {
+    top: -30px;
+  }
+  #announcements, #activities, #contact {
+    .container {
+      width: @blockWidth4;
+    }
+  }
+  #activities #worship {
+      width: @blockWidth4;
+  }
+  #contact {
+    .column {
+      padding: 10px 0;
+    }
+    .contactlabel {
+      display: none;
+    }
+  }
+  aside {
+    right: 6px;
+  }
+}
+
+@media only screen and (min-height: 800px) {
+  #about, #announcements, #activities, #contact {
+    height: @blockHeight2;
+  }
+}
+
+@media only screen and (min-height: 1000px) {
+  #about, #announcements, #activities, #contact {
+    height: @blockHeight3;
+  }
+}
+
+@media only screen and (min-height: 1200px) {
+  #about, #announcements, #activities, #contact {
+    height: @blockHeight4;
+  }
+}
+
+@media only screen and (min-height: 1500px) {
+  #about, #announcements, #activities, #contact {
+    height: @blockHeight5;
+  }
+}

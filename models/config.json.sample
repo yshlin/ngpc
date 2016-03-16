@@ -1,0 +1,24 @@
+{
+  "models": [
+    {
+      "type": "gdoc",
+      "name": "news",
+      "key": "{doc_id}/{worksheet_id}"
+    },
+    {
+      "type": "gdoc",
+      "name": "group",
+      "key": "{doc_id}/{worksheet_id}"
+    },
+    {
+      "type": "gdoc",
+      "name": "site",
+      "key": "{doc_id}/{worksheet_id}"
+    }
+  ],
+  "site": {
+    "sitedomain": "ngpc.tw",
+    "siteurl": "http://ngpc.tw",
+    "sitefbPageId": "{fb_page_id}"
+  }
+}

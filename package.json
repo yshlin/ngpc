@@ -1,0 +1,30 @@
+{
+  "name": "ngpc.tw",
+  "version": "1.0.0",
+  "description": "Official website for Nangang Garden Presbyterian Church in Taiwan.",
+  "main": "server.js",
+  "scripts": {
+    "load":"node gdoc_loader.js",
+    "lessc":"lessc site/static/css/index.less > site/static/css/index.css",
+    "render":"node controller.js",
+    "prepare": "npm run load && npm run lessc && npm run render",
+    "publish": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yshlin/ngpc/"
+  },
+  "keywords": [
+    "Christian",
+    "Church"
+  ],
+  "author": "Eddie Lin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "extend": "^3.0.0",
+    "google-spreadsheet": "^1.0.1",
+    "jsdom": "^8.1.0",
+    "transparency": "^1.0.0"
+  }
+}

@@ -1,0 +1,112 @@
+@import "lib.less";
+@import "reset.less";
+@import "libs/font-awesome/font-awesome";
+
+@fa-font-path:        "../font";
+
+@lightTextColor: #FFF7B6;
+@darkTextColor: #372D3B;
+
+header {
+  display: block;
+  height: 60px;
+  background: #372D3B;
+  color: @lightTextColor;
+  top: 0;
+  left: 0;
+  a, a:link {
+    color: @lightTextColor;
+    text-decoration: none;
+  }
+  nav {
+    height: 100%;
+  }
+  ul {
+    display: block;
+    margin: auto;
+    width: 800px;
+    list-style: none;
+    height: 100%;
+  }
+  li {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    line-height: 60px;
+    padding: 0 20px;
+    font-size: 19px;
+    font-weight: bold;
+  }
+  a {
+    display: block;
+    height: 100%;
+  }
+}
+
+footer {
+  display: block;
+  height: 200px;
+  text-align: center;
+  padding-top: 20px;
+  background: #372D3B;
+  color: @lightTextColor;
+  a, a:link {
+    color: @lightTextColor;
+    text-decoration: none;
+  }
+  ul {
+    display: inline-block;
+    list-style: none;
+    text-align: left;
+    margin-right: 20px;
+  }
+  li {
+    padding: 6px 0;
+  }
+  .fa-square {
+    color: @lightTextColor;
+  }
+  .fa-inverse {
+    color: @darkTextColor;
+  }
+}
+
+aside {
+  position: fixed;
+  display: block;
+  margin: auto;
+  top: 0;
+  right: 60px;
+  bottom: 0;
+  width: 30px;
+  height: 120px;
+  a, a:link {
+    color: @darkTextColor;
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+  }
+  li {
+    padding: 6px 0;
+  }
+  .fa-circle {
+    color: @darkTextColor;
+  }
+  .fa-inverse {
+    color: @lightTextColor;
+  }
+  .active {
+    .fa-circle {
+      color: #b06f9c;
+    }
+    .fa-inverse {
+      color: #FFFFFF;
+    }
+  }
+}
+
+.inline {
+  display: inline-block;
+  margin-right: 12px;
+}
