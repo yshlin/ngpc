@@ -8,7 +8,7 @@
     "lessc":"lessc site/static/css/index.less > site/static/css/index.css",
     "render":"node controller.js",
     "prepare": "npm run load && npm run lessc && npm run render",
-    "publish": ""
+    "upload": "git subtree push --prefix site origin gh-pages"
   },
   "repository": {
     "type": "git",
