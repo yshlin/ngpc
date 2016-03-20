@@ -11,18 +11,20 @@ exports.loadModel = function(model) {
   request(API_PREFIX + model.key + API_SUFFIX, function(error, response, body) {
     if (!error && response.statusCode == 200) {
       var entries = JSON.parse(body).feed.entry;
-      var result = entries.map(function(entry) {
-        var data = {};
-        for (var key in entry) {
-          if (0 == key.indexOf('gsx$')) {
-            data[key.substr(4)] = entry[key]['$t'];
+      if (entries) {
+        var result = entries.map(function(entry) {
+          var data = {};
+          for (var key in entry) {
+            if (0 == key.indexOf('gsx$')) {
+              data[key.substr(4)] = entry[key]['$t'];
+            }
           }
-        }
-        return data;
-      });
-      var output = 'models/' + model.name + '.json';
-      fs.writeFile(output, JSON.stringify(result, null, 2));
-      console.log(output + ' saved.')
+          return data;
+        });
+        var output = 'models/' + model.name + '.json';
+        fs.writeFile(output, JSON.stringify(result, null, 2));
+        console.log(output + ' saved.')
+      }
     }
   });
 };
