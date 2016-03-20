@@ -29,4 +29,23 @@
     },
     offset: 60
   });
+  //hide icon when no content
+  $('.newsspeaker, .newstime, .newslocation, .grouptime, .grouplocation').each(function() {
+    var $this = $(this);
+    if ('' === $this.text()) {
+      $this.parent().hide();
+    }
+  });
+  //expand blocks when exceed
+  $('.news, .group').each(function() {
+    var $this = $(this);
+    if ($this.height() > 720) {
+      $this.parent().parent().css({
+        'padding-bottom': '60px',
+        'height': 'auto'
+      });
+    } else if (0 == $this.children().size()) {
+      $this.text('目前尚無資料，請靜待更新。');
+    }
+  });
 })();
