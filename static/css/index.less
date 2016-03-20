@@ -49,7 +49,7 @@ header {
   width: @visionWidth;
   color: #FFFFFF;
   font-size: 20px;
-  white-space: pre;
+  white-space: pre-wrap;
   position: relative;
   top: -140px;
 }
@@ -149,6 +149,7 @@ header {
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     .thumb {
       display: inline-block;
+      margin: 3px 0 3px 10px;
       width: 60px;
       height: 60px;
       vertical-align: top;
@@ -161,8 +162,12 @@ header {
     }
   }
 
+  .newsspeaker, .newstime, .newslocation {
+    font-weight: bold;
+  }
+
   .newsdescription {
-    white-space: pre;
+    white-space: pre-wrap;
   }
 }
 
@@ -201,8 +206,11 @@ header {
     background: linear-gradient(rgba(237, 222, 171, 0.6), rgba(237, 222, 171, 0.3));
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   }
+  .grouptime, .grouplocation {
+    font-weight: bold;
+  }
   .groupdescription {
-    white-space: pre;
+    white-space: pre-wrap;
   }
 }
 
@@ -240,6 +248,7 @@ header {
     list-style: none;
     li {
       padding-bottom: 12px;
+      font-weight: bold;
     }
   }
 }
@@ -318,8 +327,11 @@ header {
   #activities #worship {
       width: @blockWidth3;
   }
+  #announcements .newscontent .thumb {
+    margin: 0;
+  }
   #announcements .newscontent .content {
-    padding-top: 10px;
+    padding-top: 6px;
     padding-left: 0;
   }
   aside {
