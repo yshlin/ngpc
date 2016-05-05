@@ -153,12 +153,14 @@ header {
       width: 60px;
       height: 60px;
       vertical-align: top;
+      background-position: 50% 50%;
     }
     .content {
       //flex-grow: 3;
       display: inline-block;
       vertical-align: top;
       padding-left: 10px;
+      width: 680px;
     }
   }
 
@@ -296,6 +298,9 @@ header {
   #activities #worship {
       width: @blockWidth2;
   }
+  #announcements .newscontent .content {
+    width: 520px;
+  }
 }
 
 @media only screen and (max-width: @breakTablet) {
@@ -333,6 +338,9 @@ header {
   #announcements .newscontent .content {
     padding-top: 6px;
     padding-left: 0;
+  }
+  #announcements .newscontent .content {
+    width: auto;
   }
   aside {
     right: 20px;
