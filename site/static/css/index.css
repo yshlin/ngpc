@@ -156,7 +156,7 @@ a img {
 }
 .fa-border {
   padding: .2em .25em .15em;
-  border: solid 0.08em #eeeeee;
+  border: solid 0.08em #eee;
   border-radius: .1em;
 }
 .fa-pull-left {
@@ -271,7 +271,7 @@ a img {
   font-size: 2em;
 }
 .fa-inverse {
-  color: #ffffff;
+  color: #fff;
 }
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
@@ -2183,13 +2183,13 @@ header {
   display: block;
   height: 60px;
   background: #372D3B;
-  color: #fff7b6;
+  color: #FFF7B6;
   top: 0;
   left: 0;
 }
 header a,
 header a:link {
-  color: #fff7b6;
+  color: #FFF7B6;
   text-decoration: none;
 }
 header nav {
@@ -2221,11 +2221,11 @@ footer {
   text-align: center;
   padding-top: 20px;
   background: #372D3B;
-  color: #fff7b6;
+  color: #FFF7B6;
 }
 footer a,
 footer a:link {
-  color: #fff7b6;
+  color: #FFF7B6;
   text-decoration: none;
 }
 footer ul {
@@ -2238,10 +2238,10 @@ footer li {
   padding: 6px 0;
 }
 footer .fa-square {
-  color: #fff7b6;
+  color: #FFF7B6;
 }
 footer .fa-inverse {
-  color: #372d3b;
+  color: #372D3B;
 }
 aside {
   position: fixed;
@@ -2255,7 +2255,7 @@ aside {
 }
 aside a,
 aside a:link {
-  color: #372d3b;
+  color: #372D3B;
   text-decoration: none;
 }
 aside ul {
@@ -2265,10 +2265,10 @@ aside li {
   padding: 6px 0;
 }
 aside .fa-circle {
-  color: #372d3b;
+  color: #372D3B;
 }
 aside .fa-inverse {
-  color: #fff7b6;
+  color: #FFF7B6;
 }
 aside .active .fa-circle {
   color: #b06f9c;
@@ -2358,12 +2358,12 @@ header ul {
   padding-top: 100px;
   margin-top: 60px;
   background: #C4415D;
-  color: #fff7b6;
+  color: #FFF7B6;
   text-align: center;
 }
 #about a,
 #about a:link {
-  color: #fff7b6;
+  color: #FFF7B6;
 }
 #about .fa-inverse {
   color: #A1BA94;
@@ -2383,14 +2383,14 @@ header ul {
   display: block;
   height: 800px;
   background: #EDDEAB;
-  color: #372d3b;
+  color: #372D3B;
   text-align: center;
   box-sizing: border-box;
   padding-top: 100px;
 }
 #announcements a,
 #announcements a:link {
-  color: #372d3b;
+  color: #372D3B;
 }
 #announcements .container {
   display: inline-block;
@@ -2408,11 +2408,13 @@ header ul {
   width: 60px;
   height: 60px;
   vertical-align: top;
+  background-position: 50% 50%;
 }
 #announcements .newscontent .content {
   display: inline-block;
   vertical-align: top;
   padding-left: 10px;
+  width: 680px;
 }
 #announcements .newsspeaker,
 #announcements .newstime,
@@ -2429,11 +2431,11 @@ header ul {
   box-sizing: border-box;
   text-align: center;
   background: #A1BA94;
-  color: #372d3b;
+  color: #372D3B;
 }
 #activities a,
 #activities a:link {
-  color: #372d3b;
+  color: #372D3B;
   text-decoration: none;
 }
 #activities img {
@@ -2470,7 +2472,7 @@ header ul {
   box-sizing: border-box;
   padding-top: 100px;
   background: #372D3B;
-  color: #fff7b6;
+  color: #FFF7B6;
   text-align: center;
 }
 #contact .container {
@@ -2478,14 +2480,14 @@ header ul {
 }
 #contact a,
 #contact a:link {
-  color: #fff7b6;
+  color: #FFF7B6;
   text-decoration: none;
 }
 #contact .fa-square {
-  color: #fff7b6;
+  color: #FFF7B6;
 }
 #contact .fa-inverse {
-  color: #372d3b;
+  color: #372D3B;
 }
 #contact .column {
   display: inline-block;
@@ -2546,6 +2548,9 @@ header ul {
   #activities #worship {
     width: 640px;
   }
+  #announcements .newscontent .content {
+    width: 520px;
+  }
 }
 @media only screen and (max-width: 760px) {
   header h2 {
@@ -2586,6 +2591,9 @@ header ul {
   #announcements .newscontent .content {
     padding-top: 6px;
     padding-left: 0;
+  }
+  #announcements .newscontent .content {
+    width: auto;
   }
   aside {
     right: 20px;
