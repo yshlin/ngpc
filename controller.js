@@ -36,7 +36,7 @@ var directives = {
       },
       style: function() {
         if (this.newsimageurl) {
-          return 'background-image: url('+this.newsimageurl+');background-size: auto 100%;'
+          return 'background-image: url(\''+this.newsimageurl+'\');background-size: auto 100%;'
         }
       }
     }
