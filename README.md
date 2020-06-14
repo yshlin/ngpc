@@ -19,7 +19,6 @@ Official website for Nangang Garden Presbyterian Church in Taiwan.
    ```
    cd models
    cp config.json.sample config.json
-   vim config.json
    ```
 3. Generate static website by running
    ```
