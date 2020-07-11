@@ -11,7 +11,7 @@ exports.renderTemplate = function (template, models, directives) {
     }
     var doc = jsdom(data).documentElement;
     var output = 'site/' + template + '.html';
-    fs.writeFile(output, Transparency.render(doc, models, directives).outerHTML);
+    fs.writeFileSync(output, Transparency.render(doc, models, directives).outerHTML);
     console.log(output + ' saved.');
   });
 };

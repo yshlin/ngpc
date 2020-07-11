@@ -22,7 +22,7 @@ exports.loadModel = function(model) {
           return data;
         });
         var output = 'models/' + model.name + '.json';
-        fs.writeFile(output, JSON.stringify(result, null, 2));
+        fs.writeFileSync(output, JSON.stringify(result, null, 2));
         console.log(output + ' saved.')
       }
     }
