@@ -5,7 +5,8 @@ Official website for Nangang Garden Presbyterian Church in Taiwan.
 
 1. [git](https://git-scm.com/) installed
 2. [Node.js](https://nodejs.org/) installed
-3. Clone [this repo](https://github.com/yshlin/ngpc) to your computer
+3. [lessc](http://lesscss.org/usage/) installed
+4. Clone [this repo](https://github.com/yshlin/ngpc) to your computer
    ```
    git clone https://github.com/yshlin/ngpc
    ```
