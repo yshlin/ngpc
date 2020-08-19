@@ -6,7 +6,7 @@
   var $scrollTip = $('#scroll-tip');
   //var sections = ['about', 'announcements', 'activities', 'contact'];
   var sections = ['about', 'contact'];
-  var tipContents = ['最新消息'];//['最新消息', '聚會訊息', '聯絡資訊'];
+  var tipContents = ['聯絡資訊'];//['最新消息', '聚會訊息', '聯絡資訊'];
   $.localScroll({duration: 200, lazy: true});
   $(document.body).find('> section').waypoint({
     handler: function(direction) {
