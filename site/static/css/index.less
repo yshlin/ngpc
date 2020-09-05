@@ -126,6 +126,26 @@ header {
   }
 }
 
+
+#live {
+  display: block;
+  height: @blockHeight;
+  background: #a4e2fb;
+  color: @darkTextColor;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 100px;
+  a, a:link {
+    color: @darkTextColor;
+  }
+  .container {
+    display: inline-block;
+    width: @blockWidth;
+    text-align: left;
+  }
+}
+
+
 #announcements {
   display: block;
   height: @blockHeight;
@@ -253,6 +273,9 @@ header {
       font-weight: bold;
     }
   }
+  .dedication {
+    text-align: left;
+  }
 }
 
 #scroll-tip {
@@ -287,7 +310,7 @@ header {
   #sitevisionsub {
     top: -90px;
   }
-  #announcements, #activities, #contact {
+  #announcements, #activities, #contact, #live {
     .container {
       width: @blockWidth2;
     }
@@ -320,12 +343,12 @@ header {
   #sitevisionsub {
     top: -60px;
   }
-  #announcements, #activities, #contact {
+  #announcements, #activities, #contact, #live {
     .container {
       width: @blockWidth3;
     }
   }
-  #about, #announcements, #activities, #contact {
+  #about, #announcements, #activities, #contact, #live {
     height: auto;
     padding-bottom: 60px;
   }
@@ -365,7 +388,7 @@ header {
   #sitevisionsub {
     top: -30px;
   }
-  #announcements, #activities, #contact {
+  #announcements, #activities, #contact, #live {
     .container {
       width: @blockWidth4;
     }
@@ -387,25 +410,25 @@ header {
 }
 
 @media only screen and (min-height: 800px) {
-  #about, #announcements, #activities, #contact {
+  #about, #announcements, #activities, #contact, #live {
     height: @blockHeight2;
   }
 }
 
 @media only screen and (min-height: 1000px) {
-  #about, #announcements, #activities, #contact {
+  #about, #announcements, #activities, #contact, #live {
     height: @blockHeight3;
   }
 }
 
 @media only screen and (min-height: 1200px) {
-  #about, #announcements, #activities, #contact {
+  #about, #announcements, #activities, #contact, #live {
     height: @blockHeight4;
   }
 }
 
 @media only screen and (min-height: 1500px) {
-  #about, #announcements, #activities, #contact {
+  #about, #announcements, #activities, #contact, #live {
     height: @blockHeight5;
   }
 }
