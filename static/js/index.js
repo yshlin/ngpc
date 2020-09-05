@@ -5,8 +5,8 @@
   var $header = $('header');
   var $scrollTip = $('#scroll-tip');
   //var sections = ['about', 'announcements', 'activities', 'contact'];
-  var sections = ['about', 'contact'];
-  var tipContents = ['聯絡資訊'];//['最新消息', '聚會訊息', '聯絡資訊'];
+  var sections = ['about', 'live', 'contact'];
+  var tipContents = ['禮拜直播', '聯絡資訊'];//['最新消息', '聚會訊息', '聯絡資訊'];
   $.localScroll({duration: 200, lazy: true});
   $(document.body).find('> section').waypoint({
     handler: function(direction) {
