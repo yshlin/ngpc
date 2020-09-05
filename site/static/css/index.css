@@ -155,9 +155,9 @@ a img {
   left: -1.85714286em;
 }
 .fa-border {
-  padding: .2em .25em .15em;
+  padding: 0.2em 0.25em 0.15em;
   border: solid 0.08em #eee;
-  border-radius: .1em;
+  border-radius: 0.1em;
 }
 .fa-pull-left {
   float: left;
@@ -166,10 +166,10 @@ a img {
   float: right;
 }
 .fa.fa-pull-left {
-  margin-right: .3em;
+  margin-right: 0.3em;
 }
 .fa.fa-pull-right {
-  margin-left: .3em;
+  margin-left: 0.3em;
 }
 /* Deprecated as of 4.4.0 */
 .pull-right {
@@ -179,10 +179,10 @@ a img {
   float: left;
 }
 .fa.pull-left {
-  margin-right: .3em;
+  margin-right: 0.3em;
 }
 .fa.pull-right {
-  margin-left: .3em;
+  margin-left: 0.3em;
 }
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
@@ -2379,6 +2379,24 @@ header ul {
 #content-contact ul li {
   margin-top: 20px;
 }
+#live {
+  display: block;
+  height: 800px;
+  background: #a4e2fb;
+  color: #372D3B;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 100px;
+}
+#live a,
+#live a:link {
+  color: #372D3B;
+}
+#live .container {
+  display: inline-block;
+  width: 800px;
+  text-align: left;
+}
 #announcements {
   display: block;
   height: 800px;
@@ -2505,6 +2523,9 @@ header ul {
   padding-bottom: 12px;
   font-weight: bold;
 }
+#contact .dedication {
+  text-align: left;
+}
 #scroll-tip {
   position: fixed;
   display: block;
@@ -2539,7 +2560,8 @@ header ul {
   }
   #announcements .container,
   #activities .container,
-  #contact .container {
+  #contact .container,
+  #live .container {
     width: 640px;
   }
   #contact {
@@ -2572,13 +2594,15 @@ header ul {
   }
   #announcements .container,
   #activities .container,
-  #contact .container {
+  #contact .container,
+  #live .container {
     width: 420px;
   }
   #about,
   #announcements,
   #activities,
-  #contact {
+  #contact,
+  #live {
     height: auto;
     padding-bottom: 60px;
   }
@@ -2620,7 +2644,8 @@ header ul {
   }
   #announcements .container,
   #activities .container,
-  #contact .container {
+  #contact .container,
+  #live .container {
     width: 260px;
   }
   #activities #worship {
@@ -2640,7 +2665,8 @@ header ul {
   #about,
   #announcements,
   #activities,
-  #contact {
+  #contact,
+  #live {
     height: 1000px;
   }
 }
@@ -2648,7 +2674,8 @@ header ul {
   #about,
   #announcements,
   #activities,
-  #contact {
+  #contact,
+  #live {
     height: 1200px;
   }
 }
@@ -2656,7 +2683,8 @@ header ul {
   #about,
   #announcements,
   #activities,
-  #contact {
+  #contact,
+  #live {
     height: 1400px;
   }
 }
@@ -2664,7 +2692,8 @@ header ul {
   #about,
   #announcements,
   #activities,
-  #contact {
+  #contact,
+  #live {
     height: 1600px;
   }
 }
