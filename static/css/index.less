@@ -65,6 +65,11 @@ header {
   top: -130px;
 }
 
+#livestream {
+  width: @blockWidth;
+  height: 600px;
+}
+
 #about-nav {
   a {
     width: 80px;
@@ -274,7 +279,10 @@ header {
     }
   }
   .dedication {
+    display: inline-block;
     text-align: left;
+    padding: 20px;
+    width: 680px;
   }
 }
 
@@ -315,8 +323,14 @@ header {
       width: @blockWidth2;
     }
   }
+  #livestream {
+    width: @blockWidth2;
+  }
   #contact {
     height: auto;
+    .dedication {
+      width: 320px;
+    }
   }
   #activities #worship {
       width: @blockWidth2;
@@ -347,6 +361,9 @@ header {
     .container {
       width: @blockWidth3;
     }
+  }
+  #livestream {
+    width: @blockWidth3;
   }
   #about, #announcements, #activities, #contact, #live {
     height: auto;
@@ -396,8 +413,11 @@ header {
   #activities #worship {
       width: @blockWidth4;
   }
+  #livestream {
+    width: @blockWidth4;
+  }
   #contact {
-    .column {
+    .column, .dedication {
       padding: 10px 0;
     }
     .contactlabel {
