@@ -5136,10 +5136,10 @@ header ul {
 @media only screen and (max-width: 480px) {
   font-size: 80%;
   header h2 {
-    width: 260px;
+    width: 280px;
   }
   #visionimg {
-    width: 260px;
+    width: 280px;
   }
   #sitevision,
   #sitevisionsub {
@@ -5156,13 +5156,13 @@ header ul {
   #activities .container,
   #contact .container,
   #live .container {
-    width: 260px;
+    width: 280px;
   }
   #activities #worship {
-    width: 260px;
+    width: 280px;
   }
   #livestream {
-    width: 260px;
+    width: 280px;
   }
   #contact .column,
   #contact .dedication {
