@@ -5007,7 +5007,8 @@ header ul {
   padding: 20px;
   text-align: left;
 }
-#contact .contactlabel {
+#contact .contactlabel,
+#contact .postal {
   display: inline-block;
 }
 #contact ul {
@@ -5167,7 +5168,8 @@ header ul {
   #contact .dedication {
     padding: 10px 0;
   }
-  #contact .contactlabel {
+  #contact .contactlabel,
+  #contact .postal {
     display: none;
   }
   aside {
