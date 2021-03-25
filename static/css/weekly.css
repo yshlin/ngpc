@@ -4712,16 +4712,16 @@ a:link {
 .下週服侍表 {
   width: 60px;
 }
-.sequence :nth-child(even),
-.context :nth-child(even),
-.owner :nth-child(even),
-.roles :nth-child(even),
-.fellowship :nth-child(even),
-.contact :nth-child(even),
-.本週服侍表 :nth-child(even),
-.下週服侍表 :nth-child(even),
-.靈修日期 :nth-child(even),
-.靈修進度 :nth-child(even) {
+.sequence > :nth-child(even),
+.context > :nth-child(even),
+.owner > :nth-child(even),
+.roles > :nth-child(even),
+.fellowship > :nth-child(even),
+.contact > :nth-child(even),
+.本週服侍表 > :nth-child(even),
+.下週服侍表 > :nth-child(even),
+.靈修日期 > :nth-child(even),
+.靈修進度 > :nth-child(even) {
   background: #dddddd;
 }
 .本週服侍表 :first-child,
