@@ -9,6 +9,7 @@
     "render": "node controller.js",
     "prepare": "npm run load && npm run lessc && npm run render",
     "upload": "git commit -a -m\"News Update\" && git push origin master && git subtree push --prefix site origin gh-pages",
+    "uploadsite": "git subtree push --prefix site origin gh-pages",
     "updatenews": "npm run prepare && npm run upload"
   },
   "repository": {
