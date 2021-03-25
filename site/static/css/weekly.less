@@ -1,0 +1,127 @@
+@import "lib.less";
+@import "reset.less";
+@import "libs/font-awesome/fontawesome";
+@import "libs/font-awesome/solid";
+@import "libs/font-awesome/brands";
+
+header > .container {
+  > img, > h1, > h1 > span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .dt {
+    display: block;
+    vertical-align: top;
+    font-weight: bold;
+  }
+}
+
+h2, h3 {
+  margin-top: 20px;
+}
+
+body {
+  text-align: center;
+}
+
+header {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+}
+
+a, a:link {
+  color: #333333;
+}
+
+.container {
+  display: inline-block;
+  width: @breakDesktop;
+  text-align: left;
+  padding: 10px;
+
+  > ul {
+    vertical-align: top;
+    display: inline-block;
+    list-style: none;
+
+    > li {
+      line-height: 22px;
+    }
+  }
+
+}
+
+.本週服侍表, .下週服侍表 {
+  width: 60px;
+}
+
+.sequence, .context, .owner, .roles, .fellowship, .contact, .本週服侍表, .下週服侍表, .靈修日期, .靈修進度 {
+  :nth-child(even) {
+    background: #dddddd;
+  }
+}
+
+.本週服侍表, .下週服侍表, .靈修日期, .靈修進度 {
+  :first-child {
+    font-weight: bold;
+  }
+}
+
+#worship {
+  > ul > li > span {
+    white-space: pre;
+  }
+}
+
+#worship > ul > li {
+  vertical-align: top;
+  display: inline-block;
+}
+
+#report, #pray {
+  > ul > li {
+    list-style: disc;
+    margin-left: 30px;
+  }
+}
+
+#preach {
+  white-space: pre;
+}
+
+#bible {
+
+  .verse {
+    display: inline-block;
+    width: 30px;
+    text-align: right;
+  }
+}
+
+@media only screen and (max-width: @breakDesktop) {
+  .container {
+    width: @breakTablet;
+  }
+
+  font-size: 100%;
+}
+
+@media only screen and (max-width: @breakTablet) {
+  .container {
+    width: @breakMobileLandscape;
+  }
+
+  font-size: 90%;
+}
+
+@media only screen and (max-width: @breakMobileLandscape) {
+  .container {
+    width: @breakMobile;
+  }
+
+  font-size: 80%;
+}

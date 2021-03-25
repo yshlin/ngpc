@@ -1,16 +1,18 @@
-var jsdom = require('jsdom').jsdom;
-var fs = require('fs');
-var Transparency = require('transparency');
+const jsdom = require('jsdom').jsdom;
+const fs = require('fs');
+const Transparency = require('transparency');
 
-var exports = module.exports = {};
 
-exports.renderTemplate = function (template, models, directives) {
+module.exports.renderTemplate = function (template, models, directives, target) {
   fs.readFile('site/' + template + '.tpl.html', 'utf8', function(err, data) {
     if (err) {
       return console.log(err);
     }
-    var doc = jsdom(data).documentElement;
-    var output = 'site/' + template + '.html';
+    let doc = jsdom(data).documentElement;
+    if (undefined === target) {
+      target = template;
+    }
+    var output = 'site/' + target + '.html';
     fs.writeFileSync(output, Transparency.render(doc, models, directives).outerHTML);
     console.log(output + ' saved.');
   });

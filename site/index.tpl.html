@@ -1,212 +1,234 @@
 <!DOCTYPE html>
 <html lang="zh-TW" dir="ltr" class="windows x86 no-js">
 <head>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title data-bind="sitetitle"></title>
-  <meta name="description" content="" data-bind="sitedescription">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="" data-bind="sitename">
-  <meta property="og:locale" content="zh_TW">
-  <meta property="og:url" content="" data-bind="siteurl">
-  <meta property="og:image" content="" data-bind="siteimage">
-  <meta property="og:title" content="" data-bind="sitetitle">
-  <meta property="og:description" content="" data-bind="sitedescription">
-  <meta property="fb:page_id" content="" data-bind="sitefbpageid">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:domain" content="" data-bind="sitedomain">
-  <link rel="canonical" hreflang="x-default" href="" data-bind="siteurl">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title data-bind="sitetitle"></title>
+    <meta name="description" content="" data-bind="sitedescription">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="" data-bind="sitename">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:url" content="" data-bind="siteurl">
+    <meta property="og:image" content="" data-bind="siteimage">
+    <meta property="og:title" content="" data-bind="sitetitle">
+    <meta property="og:description" content="" data-bind="sitedescription">
+    <meta property="fb:page_id" content="" data-bind="sitefbpageid">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="" data-bind="sitedomain">
+    <link rel="canonical" hreflang="x-default" href="" data-bind="siteurl">
 
-  <link rel="stylesheet" href="static/css/index.css" type="text/css"/>
-  <link type="text/css" rel="stylesheet"
-        href="static/css/libs/owl.carousel.css"/>
-  <link type="text/css" rel="stylesheet" href="static/css/libs/owl.theme.css"/>
-  <script>
-    (function(i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function() {
+    <link rel="stylesheet" href="static/css/index.css" type="text/css"/>
+    <link type="text/css" rel="stylesheet"
+          href="static/css/libs/owl.carousel.css"/>
+    <link type="text/css" rel="stylesheet" href="static/css/libs/owl.theme.css"/>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
                 (i[r].q = i[r].q || []).push(arguments)
-              }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-              m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-60706809-1', 'auto');
-    ga('send', 'pageview');
+        ga('create', 'UA-60706809-1', 'auto');
+        ga('send', 'pageview');
 
-  </script>
+    </script>
 </head>
 <body>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.5";
-  fjs.parentNode.insertBefore(js, fjs);
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.5";
+    fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <header>
-  <nav id="news-nav">
-    <h2>教會異象</h2>
-  </nav>
-  <nav id="live-nav">
-    <h2>禮拜直播</h2>
-  </nav>
- <!--
-  <nav id="about-nav">
-    <h2>最新消息</h2>
-  </nav>
-  <nav id="activities-nav">
-    <h2>聚會訊息</h2>
-  </nav>
--->
-  <nav id="contact-nav">
-    <h2>聯絡資訊</h2>
-  </nav>
+    <nav id="news-nav">
+        <h2>教會異象</h2>
+    </nav>
+    <nav id="live-nav">
+        <h2>禮拜直播</h2>
+    </nav>
+    <!--
+     <nav id="about-nav">
+       <h2>最新消息</h2>
+     </nav>
+     <nav id="activities-nav">
+       <h2>聚會訊息</h2>
+     </nav>
+   -->
+    <nav id="contact-nav">
+        <h2>聯絡資訊</h2>
+    </nav>
 </header>
 
 <section id="about">
-  <div class="container">
-    <div id="content-banner">
-      <img id="visionimg" src="static/img/ngpc-banner.png"><br>
-      <div id="sitevision"></div><br>
-      <div id="sitevisionsub"></div>
+    <div class="container">
+        <div id="content-banner">
+            <img id="visionimg" src="static/img/ngpc-banner.png"><br>
+            <div id="sitevision"></div>
+            <br>
+            <div id="sitevisionsub"></div>
+        </div>
     </div>
-  </div>
 </section>
 <section id="live">
-  <div class="container">
-    <div class="live">
-      <div class="live_content">
-	    <iframe id="livestream" alignment="center" src="https://www.youtube.com/embed/live_stream?channel=UClC9_1X4_t3xCYTUT_3ztoQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+    <div class="container">
+        <div class="live">
+            <div class="live_content">
+                <iframe id="livestream" alignment="center"
+                        src="https://www.youtube.com/embed/live_stream?channel=UClC9_1X4_t3xCYTUT_3ztoQ" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen=""></iframe>
 
-      </div>
-      <div class="live_cta">
-        <br>
-        <a href="https://forms.gle/xmdjqcC5D8fVUcdG6" target="_blank">新朋友請至此登錄聯絡資料 »</a>
-        <br>
-        <br>
-        <a href="#contact">匯款奉獻資訊 »</a>
-      </div>
+            </div>
+            <div class="live_cta">
+                <br>
+                <a href="https://forms.gle/xmdjqcC5D8fVUcdG6" target="_blank">新朋友請至此登錄聯絡資料 »</a>
+                <br>
+                <br>
+                <a href="#contact">匯款奉獻資訊 »</a>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <section id="contact">
-  <div class="container">
-    <div class="column">
-      <ul>
-        <li>
-          <a href="tel:0226513990">
-                  <span class="fa-stack fas">
-                    <i class="fas fa-square fa-stack-2x"></i>
-                    <i class="fas fa-phone fa-stack-1x fa-inverse"></i>
-                  </span>
-            <span class="contactlabel">電話：</span><span>(02) 2651-3990</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://goo.gl/maps/PQ3rL">
-                  <span class="fa-stack fas">
-                    <i class="fas fa-square fa-stack-2x"></i>
-                    <i class="fas fa-map-marker fa-stack-1x fa-inverse"></i>
-                  </span>
-            <span class="contactlabel">地址：</span><span>11568 台北市南港區興東街29號</span>
-          </a>
-        </li>
-      </ul>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.3588987603766!2d121.61252599999993!3d25.055822000000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab58c192e7e5%3A0xe3f017e5dec2cccf!2z5Y2X5ZyS5pWZ5pyD!5e0!3m2!1szh-TW!2stw!4v1426000716896"
-              width="260" height="320" frameborder="0"
-              style="border:0"></iframe>
-    </div>
-    <div class="column">
-      <ul>
-        <li>
-          <a href="mailto:ngpc0706@gmail.com">
+    <div class="container">
+        <div class="column">
+            <ul>
+                <li>
+                    <a href="mailto:ngpc0706@gmail.com">
                   <span class="fa-stack fas">
                     <i class="fas fa-square fa-stack-2x"></i>
                     <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
                   </span>
-            <span class="contactlabel">電子郵件：</span><span>ngpc0706@gmail.com</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.facebook.com/nankanggarden">
+                        <span class="contactlabel">電子郵件：</span><span>ngpc0706@gmail.com</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:0226513990">
+                  <span class="fa-stack fas">
+                    <i class="fas fa-square fa-stack-2x"></i>
+                    <i class="fas fa-phone fa-stack-1x fa-inverse"></i>
+                  </span>
+                        <span class="contactlabel">電話：</span><span>(02) 2651-3990</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://goo.gl/maps/PQ3rL">
+                  <span class="fa-stack fas">
+                    <i class="fas fa-square fa-stack-2x"></i>
+                    <i class="fas fa-map-marker fa-stack-1x fa-inverse"></i>
+                  </span>
+                        <span class="contactlabel">地址：</span><span><a target="_blank" href="https://www.google.com/maps/place/115%E5%8F%B0%E5%8C%97%E5%B8%82%E5%8D%97%E6%B8%AF%E5%8D%80%E8%88%88%E6%9D%B1%E8%A1%9729%E8%99%9F%E5%8D%97%E5%9C%92%E6%95%99%E6%9C%83/@25.055822,121.612526,16z/data=!4m2!3m1!1s0x3442ab58c192e7e5:0xe3f017e5dec2cccf?hl=zh-TW&gl=TW">11568 台北市南港區興東街29號</a></span>
+                    </a>
+                </li>
+            </ul>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.3588987603766!2d121.61252599999993!3d25.055822000000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab58c192e7e5%3A0xe3f017e5dec2cccf!2z5Y2X5ZyS5pWZ5pyD!5e0!3m2!1szh-TW!2stw!4v1426000716896"
+                    width="260" height="320" frameborder="0"
+                    style="border:0"></iframe>
+        </div>
+        <div class="column">
+            <ul>
+                <li>
+                    <a href="https://www.facebook.com/nankanggarden">
                   <span class="fa-stack fas">
                     <i class="fas fa-square fa-stack-2x"></i>
                     <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
                   </span>
-            <span class="contactlabel">臉書：</span><span>facebook.com/nankanggarden</span>
-          </a>
-        </li>
-      </ul>
-      <div class="fb-page" data-href="https://www.facebook.com/nankanggarden"
-           data-tabs="timeline" data-width="280" data-height="320"
-           data-small-header="false" data-adapt-container-width="true"
-           data-hide-cover="false" data-show-facepile="true">
-        <div class="fb-xfbml-parse-ignore">
-          <blockquote cite="https://www.facebook.com/nankanggarden"><a
-                  href="https://www.facebook.com/nankanggarden">南園教會</a>
-          </blockquote>
+                        <span class="contactlabel">臉書：</span><span>facebook.com/nankanggarden</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://line.me/R/ti/p/3AZQYakkkP">
+                  <span class="fa-stack fas">
+                    <i class="fas fa-square fa-stack-2x"></i>
+                    <i class="fab fa-line fa-stack-1x fa-inverse"></i>
+                  </span>
+                        <span class="contactlabel">LINE：</span><span>line.me/R/ti/p/3AZQYakkkP</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/nankanggarden">
+                  <span class="fa-stack fas">
+                    <i class="fas fa-square fa-stack-2x"></i>
+                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                        <span class="contactlabel">IG：</span><span>instagram.com/nankanggarden</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="fb-page" data-href="https://www.facebook.com/nankanggarden"
+                 data-tabs="timeline" data-width="280" data-height="320"
+                 data-small-header="false" data-adapt-container-width="true"
+                 data-hide-cover="false" data-show-facepile="true">
+                <div class="fb-xfbml-parse-ignore">
+                    <blockquote cite="https://www.facebook.com/nankanggarden"><a
+                            href="https://www.facebook.com/nankanggarden">南園教會</a>
+                    </blockquote>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="dedication">
-      <ul>
-        <li>
+        <div class="dedication">
+            <ul>
+                <li>
           <span class="fa-stack fas">
             <i class="fas fa-square fa-stack-2x"></i>
             <i class="fas fa-donate fa-stack-1x fa-inverse"></i>
           </span>
-          <span class="contactlabel">奉獻匯款</span>
-        </li>
-		<li>銀行：彰化銀行敦化分行 009</li>
-		<li>戶名：財團法人北部台灣基督長老教會七星中會南園教會</li>
-		<li>帳號：52720100701700</li>
-		<li><a href="https://forms.gle/Y9TbpKN25LcqBvmY7" target="_blank">若需奉獻證明請填寫核對資料 »</a></li>
-      </ul>
+                    <span class="contactlabel">奉獻匯款</span>
+                </li>
+                <li>銀行：彰化銀行敦化分行 009</li>
+                <li>戶名：財團法人北部台灣基督長老教會<br>　　　七星中會南園教會</li>
+                <li>帳號：52720100701700</li>
+                <li><a href="https://forms.gle/Y9TbpKN25LcqBvmY7" target="_blank">若需奉獻證明請填寫核對資料 »</a></li>
+            </ul>
+        </div>
     </div>
-  </div>
 </section>
 <a id="scroll-tip">
-  <span id="tip-content"></span><br>
-  <i class="fa fa-chevron-down"></i>
+    <span id="tip-content"></span><br>
+    <i class="fa fa-chevron-down"></i>
 </a>
 
 
 <aside>
-  <nav>
-    <ul>
-      <li>
-        <a id="nav-about" href="#about" title="教會異象">
+    <nav>
+        <ul>
+            <li>
+                <a id="nav-about" href="#about" title="教會異象">
           <span class="fa-stack fas">
             <i class="fas fa-circle fa-stack-2x"></i>
             <i class="fas fa-church fa-stack-1x fa-inverse"></i>
           </span>
-        </a>
-      </li>
-      <li>
-        <a id="nav-live" href="#live" title="禮拜直播">
+                </a>
+            </li>
+            <li>
+                <a id="nav-live" href="#live" title="禮拜直播">
           <span class="fa-stack fas">
             <i class="fas fa-circle fa-stack-2x"></i>
             <i class="fas fa-video fa-stack-1x fa-inverse"></i>
           </span>
-        </a>
-      </li>
-      <li>
-        <a id="nav-contact" href="#contact" title="聯絡資訊">
+                </a>
+            </li>
+            <li>
+                <a id="nav-contact" href="#contact" title="聯絡資訊">
           <span class="fa-stack fas">
             <i class="fas fa-circle fa-stack-2x"></i>
             <i class="fas fa-map fa-stack-1x fa-inverse"></i>
           </span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </aside>
 
 <script src="static/js/libs/jquery-1.11.2.min.js"></script>

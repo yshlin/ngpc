@@ -1,52 +1,86 @@
-var extend = require('extend');
-var renderTemplate = require('./tpl_render').renderTemplate;
-var siteConfig = require('./models/config.json');
-var siteModel = require('./models/site.json');
-var newsModel = require('./models/news.json');
-var groupModel = require('./models/group.json');
+const extend = require('extend');
+const renderTemplate = require('./tpl_render').renderTemplate;
+const siteConfig = require('./models/config.json');
+const siteModel = require('./models/site.json');
+const newsModel = require('./models/news.json');
+const groupModel = require('./models/group.json');
+const weeklyModel = require('./models/weekly.json');
 
-var models = extend(true, siteConfig.site, siteModel[0], {'news': newsModel}, {'group': groupModel});
+const models = extend(true, siteConfig.site, siteModel[0], {'news': newsModel}, {'group': groupModel});
 
 function getMetaDirective(key) {
-  var dir = {
-    content: function(params) {
-      if ('META' == params.element.tagName) {
-        return this[key];
-      }
+    let dir = {
+        content: function (params) {
+            if ('META' === params.element.tagName) {
+                return this[key];
+            }
+        }
+    };
+    if ('siteurl' === key) {
+        dir['href'] = function (params) {
+            if ('LINK' === params.element.tagName) {
+                return this[key];
+            }
+        }
     }
-  };
-  if ('siteurl' == key) {
-    dir['href'] = function(params) {
-      if ('LINK' == params.element.tagName) {
-        return this[key];
-      }
-    }
-  }
-  return dir;
+    return dir;
 }
 
-var directives = {
-  'news': {
-    'newsimageurl': {
-      'text': function() {
-        return '';
-      },
-      href: function() {
-        return this.newsimageurl;
-      },
-      style: function() {
-        if (this.newsimageurl) {
-          return 'background-image: url(\''+this.newsimageurl+'\');background-size: auto 100%;'
+function getImageLinkDirective(imgkey) {
+    return {
+        'text': function () {
+            return '';
+        },
+        href: function () {
+            return this[imgkey];
+        },
+        style: function () {
+            if (this[imgkey]) {
+                return 'background-image: url(\'' + this[imgkey] + '\');background-size: auto 100%;'
+            }
         }
-      }
     }
-  }
+}
+
+function getOddClassDirective() {
+    return {
+        'class': function (params) {
+            return params.value + ([1, 3, 5, 8, 9].includes(params.index) ? ' even' : '');
+        }
+    }
+}
+
+let directives = {
+    'news': {
+        'newsimageurl': getImageLinkDirective('newsimageurl')
+    }
 };
 
-for (var key in models) {
-  if (0 == key.indexOf('site')) {
-    directives[key] = getMetaDirective(key);
-  }
+let weeklyDirectives = {
+    '報告': {
+        'image': getImageLinkDirective('image')
+    },
+    '禱告': {
+        'image': getImageLinkDirective('image')
+    },
+    '回應詩連結': {
+        'text': function (params) {
+            return params.value;
+        },
+        href: function () {
+            return '#' + this['回應詩連結'];
+        }
+    },
+};
+
+for (let key in models) {
+    if (models.hasOwnProperty(key)) {
+        if (0 === key.indexOf('site')) {
+            directives[key] = getMetaDirective(key);
+        }
+    }
 }
 
 renderTemplate('index', models, directives);
+renderTemplate('weekly/index', weeklyModel, weeklyDirectives);
+renderTemplate('weekly/index', weeklyModel, weeklyDirectives, 'weekly/'+weeklyModel['pubdate']);

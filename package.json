@@ -4,9 +4,9 @@
   "description": "Official website for Nangang Garden Presbyterian Church in Taiwan.",
   "main": "server.js",
   "scripts": {
-    "load":"node gdoc_loader.js",
-    "lessc":"lessc site/static/css/index.less > site/static/css/index.css",
-    "render":"node controller.js",
+    "load": "node gdoc_loader.js",
+    "lessc": "lessc site/static/css/index.less > site/static/css/index.css && lessc site/static/css/weekly.less > site/static/css/weekly.css",
+    "render": "node controller.js",
     "prepare": "npm run load && npm run lessc && npm run render",
     "upload": "git commit -a -m\"News Update\" && git push origin master && git subtree push --prefix site origin gh-pages",
     "updatenews": "npm run prepare && npm run upload"
@@ -25,7 +25,9 @@
     "express": "^4.13.3",
     "extend": "^3.0.0",
     "google-spreadsheet": "^1.0.1",
+    "googleapis": "^39.2.0",
     "jsdom": "^8.1.0",
+    "request": "^2.29.0",
     "transparency": "^1.0.0"
   }
 }
