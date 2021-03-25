@@ -41,10 +41,16 @@ function weeklyTransform(result) {
                 if (!result.hasOwnProperty(newkey)) {
                     result[newkey] = [];
                 }
-                result[newkey].push({
-                    content: vals[0]['value'],
-                    image: vals[1]['value']
-                });
+                if (vals.hasOwnProperty(1)) {
+                    result[newkey].push({
+                        content: vals[0]['value'],
+                        image: vals[1]['value']
+                    });
+                } else {
+                    result[newkey].push({
+                        content: vals[0]['value']
+                    });
+                }
             } else if (key.startsWith('詩歌')) {
                 let sliceIndex = vals[0]['value'].indexOf('\n\n');
                 result[key+'標題'] = vals[0]['value'].slice(0, sliceIndex);
@@ -58,7 +64,15 @@ function weeklyTransform(result) {
                     if (!vals.hasOwnProperty(i)) {
                         continue;
                     }
-                    newval.push({verse: vals[i]['value'], content: vals[i+1]['value']});
+                    let verses = vals[i]['value'].replaceAll(/\n\n/g, '\n').split('\n');
+                    let contents = vals[i+1]['value'].replaceAll(/\n\n/g, '\n').split('\n');
+                    for (let j in verses) {
+                        if (!verses.hasOwnProperty(j) || !contents.hasOwnProperty(j)) {
+                            continue;
+                        }
+                        newval.push({verse: verses[j], content: contents[j]});
+                    }
+                    newval.push({verse: ' ', content: ' '});
                 }
                 result[key] = newval;
             } else if (['靈修日期', '靈修進度'].includes(key)) {
