@@ -4683,6 +4683,7 @@ h3 {
 }
 body {
   text-align: center;
+  font-size: 16px;
 }
 header {
   text-align: center;
@@ -4712,8 +4713,8 @@ a:link {
 .下週服侍表 {
   width: 105px;
 }
-.本週服侍表 .value,
-.下週服侍表 .value {
+.本週服侍表 > .value,
+.下週服侍表 > .value {
   word-wrap: break-word;
 }
 .sequence > :nth-child(even),
