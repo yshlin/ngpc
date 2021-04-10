@@ -4774,18 +4774,15 @@ a:link {
   .container {
     width: 760px;
   }
-  font-size: 100%;
 }
 @media only screen and (max-width: 760px) {
   .container {
     width: 480px;
   }
-  font-size: 90%;
 }
 @media only screen and (max-width: 480px) {
   .container {
     width: 300px;
   }
-  font-size: 80%;
 }
 /*# sourceMappingURL=weekly.css.map */
