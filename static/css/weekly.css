@@ -4712,6 +4712,10 @@ a:link {
 .下週服侍表 {
   width: 105px;
 }
+.本週服侍表 .value,
+.下週服侍表 .value {
+  word-wrap: break-word;
+}
 .sequence > :nth-child(even),
 .context > :nth-child(even),
 .owner > :nth-child(even),
@@ -4783,3 +4787,4 @@ a:link {
   }
   font-size: 80%;
 }
+/*# sourceMappingURL=weekly.css.map */
