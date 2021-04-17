@@ -82,5 +82,7 @@ for (let key in models) {
 }
 
 renderTemplate('index', models, directives);
-renderTemplate('weekly/index', weeklyModel, weeklyDirectives);
-renderTemplate('weekly/index', weeklyModel, weeklyDirectives, 'weekly/'+weeklyModel['pubdate']);
+let tpl_postfix = weeklyModel['樣版'] === '聖禮典' ? '2' : '';
+console.log(tpl_postfix);
+renderTemplate('weekly/index' + tpl_postfix, weeklyModel, weeklyDirectives, 'weekly/index');
+renderTemplate('weekly/index' + tpl_postfix, weeklyModel, weeklyDirectives, 'weekly/'+weeklyModel['pubdate']);
