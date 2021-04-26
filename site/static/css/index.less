@@ -1,7 +1,7 @@
 @import "base.less";
 
 @blockWidth: 800px;
-@visionWidth: 500px;
+@visionWidth: 450px;
 
 @blockWidth2: 640px;
 @visionWidth2: 400px;
@@ -31,6 +31,17 @@ header {
     vertical-align: middle;
     text-align: left;
   }
+
+  nav:before {
+    content: "";
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    background: url("../img/ngpc-logo-w.png") no-repeat center;
+    background-size:  48px 48px;
+  }
+
   nav {
     text-align: center;
   }
@@ -45,24 +56,28 @@ header {
 
 #sitevision {
   display: inline-block;
-  text-align: right;
+  text-align: left;
   width: @visionWidth;
   color: #FFFFFF;
-  font-size: 20px;
+  font-size: 16px;
   white-space: pre-wrap;
   position: relative;
-  top: -140px;
+  top: -80px;
+  padding-right: 300px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 #sitevisionsub {
   display: inline-block;
   text-align: right;
-  width: @visionWidth;
+  width: 100px;
   clear: both;
   color: #FFFFFF;
-  font-size: 16px;
+  font-size: 14px;
   position: relative;
-  top: -130px;
+  top: -75px;
+  padding-right: 100px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 #livestream {
@@ -110,7 +125,7 @@ header {
   box-sizing: border-box;
   padding-top: 100px;
   margin-top: 60px;
-  background: #C4415D;
+  background: #FEF4E0;
   color: @lightTextColor;
   a, a:link {
     color: @lightTextColor;
@@ -301,7 +316,7 @@ header {
   left: 0;
   right: 0;
   bottom: 10px;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 1.0);
   color: #FFFFFF;
   text-align: center;
   //pointer-events: none;
@@ -309,21 +324,24 @@ header {
 }
 
 @media only screen and (max-width: @breakDesktop) {
-  font-size: 100%;
+  //font-size: 100%;
   header h2 {
-    width: @blockWidth2;
+    width: @blockWidth2 - 60px;
   }
   #visionimg {
-    width: @blockWidth2;
-  }
-  #sitevision, #sitevisionsub {
-    width: @visionWidth2;
+    width: @blockWidth2 - 60px;
   }
   #sitevision {
-    top: -100px;
+    width: 340px;
+    top: -60px;
+    padding-right: 220px;
+    font-size: 12px;
   }
   #sitevisionsub {
-    top: -90px;
+    width: 100px;
+    top: -56px;
+    font-size: 10px;
+    padding-right: 100px;
   }
   #announcements, #activities, #contact, #live {
     .container {
@@ -348,22 +366,26 @@ header {
 }
 
 @media only screen and (max-width: @breakTablet) {
-  font-size: 90%;
+  //font-size: 90%;
   header h2 {
-    width: @blockWidth3;
+    width: @blockWidth3 - 60px;
   }
   #visionimg {
-    width: @blockWidth3;
-  }
-  #sitevision, #sitevisionsub {
-    width: @visionWidth3;
+    width: @blockWidth3 - 60px;
   }
   #sitevision {
-    top: -70px;
+    width: 220px;
+    top: -40px;
+    padding-right: 130px;
+    font-size: 8px;
   }
   #sitevisionsub {
-    top: -60px;
+    width: 100px;
+    top: -40px;
+    font-size: 8px;
+    padding-right: 100px;
   }
+
   #announcements, #activities, #contact, #live {
     .container {
       width: @blockWidth3;
@@ -395,22 +417,24 @@ header {
 }
 
 @media only screen and (max-width: @breakMobileLandscape) {
-  font-size: 80%;
+  //font-size: 80%;
   header h2 {
-    width: @blockWidth4;
+    width: @blockWidth4 - 60px;
   }
   #visionimg {
     width: @blockWidth4;
   }
-  #sitevision, #sitevisionsub {
-    width: @visionWidth4;
-    margin-right: 30px;
-  }
   #sitevision {
-    top: -40px;
+    width: 170px;
+    top: -30px;
+    padding-right: 100px;
+    font-size: 6px;
   }
   #sitevisionsub {
+    width: 100px;
     top: -30px;
+    font-size: 6px;
+    padding-right: 100px;
   }
   #announcements, #activities, #contact, #live {
     .container {
