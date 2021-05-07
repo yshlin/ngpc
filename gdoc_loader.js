@@ -47,7 +47,7 @@ function weeklyTransform(result) {
                 if (vals.hasOwnProperty(1)) {
                     result[newkey].push({
                         content: vals[0]['value'],
-                        image: vals[1]['value']
+                        image: vals[1]['value'].replace(/^https:\/\/drive\.google\.com\/file\/d\/(.+)\/view\?usp=sharing$/, "https://drive.google.com/uc?id=$1")
                     });
                 } else {
                     result[newkey].push({
