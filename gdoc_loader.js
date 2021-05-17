@@ -80,6 +80,15 @@ function weeklyTransform(result) {
                 result[key] = newval;
             } else if (['靈修日期', '靈修進度'].includes(key)) {
                 result[key].splice(0, 0, {'value': key});
+            } else if (key === '講綱') {
+                let newvals = [];
+                let agenda = vals[0]['value'].split('\n');
+                for (let i in agenda) {
+                    if (agenda.hasOwnProperty(i)) {
+                        newvals.push({'value': agenda[i].trim()});
+                    }
+                }
+                result[key] = newvals
             }
         }
     }
