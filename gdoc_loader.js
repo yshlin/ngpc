@@ -82,13 +82,15 @@ function weeklyTransform(result) {
                 result[key].splice(0, 0, {'value': key});
             } else if (key === '講綱') {
                 let newvals = [];
-                let agenda = vals[0]['value'].split('\n');
-                for (let i in agenda) {
-                    if (agenda.hasOwnProperty(i)) {
-                        newvals.push({'value': agenda[i].trim()});
+                if (vals[0] && vals[0].hasOwnProperty('value')) {
+                    let agenda = vals[0]['value'].split('\n');
+                    for (let i in agenda) {
+                        if (agenda.hasOwnProperty(i)) {
+                            newvals.push({'value': agenda[i].trim()});
+                        }
                     }
+                    result[key] = newvals
                 }
-                result[key] = newvals
             }
         }
     }
