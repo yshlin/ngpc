@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="https://docs.google.com/forms/d/e/1FAIpQLSceKu6GcAAWTzxpHIQ5LtaZErFUFsEtb-2wmjVCgSvXRmhAcQ/formResponse"
+      target="_self"
+      id="bootstrapForm"
+      method="POST">
+    <fieldset>
+        <h2>南園教會線上代禱表單<br><small></small></h2>
+    </fieldset>
+
+
+    <!-- Field type: "short" id: "1660010635" -->
+    <fieldset>
+        <legend for="1660010635">姓名</legend>
+        <div class="form-group">
+            <input id="1860617850" type="text" name="entry.1860617850" class="form-control" required>
+        </div>
+    </fieldset>
+
+
+    <!-- Field type: "paragraph" id: "1980363247" -->
+    <fieldset>
+        <legend for="1980363247">代禱事項</legend>
+        <div class="form-group">
+            <textarea id="1943356980" name="entry.1943356980" class="form-control" required></textarea>
+        </div>
+    </fieldset>
+
+
+    <!-- Field type: "checkboxes" id: "522529034" -->
+    <fieldset>
+        <legend for="522529034">你希望誰為你代禱？</legend>
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="entry.1544330039" value="牧師" required>
+                    牧師
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="entry.1544330039" value="自己的小組長" required>
+                    自己的小組長
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="entry.1544330039" value="自己的小組成員" required>
+                    自己的小組成員
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="entry.1544330039" value="南園教會" required>
+                    南園教會
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="entry.1544330039" value="__other_option__" required>
+                </label>
+                <input type="text" name="entry.1544330039.other_option_response" placeholder="custom value">
+            </div>
+        </div>
+    </fieldset>
+
+
+    <!-- Field type: "choices" id: "990001277" -->
+    <fieldset>
+        <legend for="990001277">是否需要有人和你一起禱告？</legend>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="entry.912581911" value="是，需要當面一起禱告（疫情解除時）" required>
+                    是，需要當面一起禱告（疫情解除時）
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="entry.912581911" value="是，電話或 LINE 上禱告即可" required>
+                    是，電話或 LINE 上禱告即可
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="entry.912581911" value="請為我代禱就好" required>
+                    請為我代禱就好
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="entry.912581911" value="可否將代禱的禱詞寄回給我" required>
+                    可否將代禱的禱詞寄回給我
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="entry.912581911" value="__other_option__" required>
+                </label>
+                <input type="text" name="entry.912581911.other_option_response" placeholder="custom value">
+            </div>
+        </div>
+    </fieldset>
+
+
+    <!-- Field type: "short" id: "1641678634" -->
+    <fieldset>
+        <legend for="1641678634">聯絡方式</legend>
+        <div class="form-group">
+            <p class="help-block">（必填）可能依情況用於代禱事項確認、或電話代禱，留下 Email 、電話號碼或FB/Line帳號皆可</p>
+            <input id="1123589781" type="text" name="entry.1123589781" class="form-control" required>
+        </div>
+    </fieldset>
+
+    <input type="hidden" name="fvv" value="1">
+    <input type="hidden" name="fbzx" value="-1485070060677689744">
+    <!--
+        CAVEAT: In multipages (multisection) forms, *pageHistory* field tells to google what sections we've currently completed.
+        This usually starts as "0" for the first page, then "0,1" in the second page... up to "0,1,2..N" in n-th page.
+        Keep this in mind if you plan to change this code to recreate any sort of multipage-feature in your exported form.
+        We're setting this to the total number of pages in this form because we're sending all fields from all the section together.
+    -->
+    <input type="hidden" name="pageHistory" value="0">
+
+    <input class="btn btn-primary" type="submit" value="Submit">
+</form>
+
+</body>
+</html>
