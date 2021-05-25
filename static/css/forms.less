@@ -63,6 +63,21 @@ input[type="text"], textarea {
   box-shadow: inset 1px 1px 3px #AAAAAA;
 }
 
+button, input[type="submit"], input[type="button"] {
+  &:hover {
+    background: lighten(@darkBgColor, 10%);
+  }
+  &:active {
+    background: lighten(@darkBgColor, 5%);
+  }
+  background: @darkBgColor;
+  color: @lightTextColor;
+  font-size: large;
+  font-weight: bolder;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
 .help-block {
   font-size: small;
 }

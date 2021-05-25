@@ -4829,6 +4829,26 @@ input[type="text"],
 textarea {
   box-shadow: inset 1px 1px 3px #AAAAAA;
 }
+button,
+input[type="submit"],
+input[type="button"] {
+  background: #372D3B;
+  color: #FFF7B6;
+  font-size: large;
+  font-weight: bolder;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background: #524358;
+}
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active {
+  background: #443849;
+}
 .help-block {
   font-size: small;
 }
