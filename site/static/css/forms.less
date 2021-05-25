@@ -1,0 +1,101 @@
+@import "base.less";
+
+@bgColor: #FEF4E0;
+@fsColor: #CDDEC7;
+@blockWidth: 800px;
+@blockWidth2: 640px;
+@blockWidth3: 420px;
+@blockWidth4: 280px;
+
+body {
+  background: @bgColor;
+  text-align: center;
+  color: @darkTextColor;
+}
+
+a, a:link {
+  color: @darkTextColor;
+}
+
+header {
+  h2 {
+    width: @blockWidth;
+    text-align: left;
+  }
+}
+
+form {
+  display: inline-block;
+  text-align: left;
+  width: @blockWidth;
+}
+
+legend {
+  background: @fsColor;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-weight: bolder;
+  font-size: large;
+}
+
+fieldset, .submitted {
+  margin: 20px 10px;
+  padding: 10px;
+  background: @fsColor;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px #AAAAAA;
+}
+
+fieldset.prewrap {
+  white-space: pre-wrap;
+  font-size: small;
+}
+
+input, textarea {
+  border-width: 1px;
+  border-color: #CCCCCC;
+  border-radius: 5px;
+  border-style: solid;
+  padding: 5px;
+}
+
+input[type="text"], textarea {
+  box-shadow: inset 1px 1px 3px #AAAAAA;
+}
+
+.help-block {
+  font-size: small;
+}
+
+
+@media only screen and (max-width: @breakDesktop) {
+  header h2 {
+    width: @blockWidth2 - 60px;
+  }
+
+  form {
+    width: @blockWidth2;
+  }
+}
+
+@media only screen and (max-width: @breakTablet) {
+  header h2 {
+    width: @blockWidth3 - 60px;
+  }
+
+  form {
+    width: @blockWidth3;
+  }
+}
+
+@media only screen and (max-width: @breakMobileLandscape) {
+  header h2 {
+      width: @blockWidth4 - 60px;
+      font-size: 1.2em;
+  }
+
+  form {
+    width: @blockWidth4;
+  }
+}
+

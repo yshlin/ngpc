@@ -4682,6 +4682,19 @@ header a:link {
 header nav {
   height: 100%;
 }
+header nav:before {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  vertical-align: middle;
+  background: url("../img/ngpc-logo-w.png") no-repeat center;
+  background-size: 48px 48px;
+}
+header h2 {
+  display: inline-block;
+  vertical-align: middle;
+}
 header ul {
   display: block;
   margin: auto;
@@ -4780,15 +4793,6 @@ header h2 {
   line-height: 60px;
   vertical-align: middle;
   text-align: left;
-}
-header nav:before {
-  content: "";
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-  vertical-align: middle;
-  background: url("../img/ngpc-logo-w.png") no-repeat center;
-  background-size: 48px 48px;
 }
 header nav {
   text-align: center;
@@ -5227,3 +5231,4 @@ header ul {
     height: 1600px;
   }
 }
+/*# sourceMappingURL=index.css.map */
