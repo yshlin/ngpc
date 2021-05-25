@@ -35,8 +35,8 @@
       target="_self"
       id="bootstrapForm"
       method="POST">
-    <fieldset class="prewrap">
-台灣奉獻資訊：
+    <fieldset>
+        <small class="prewrap">台灣奉獻資訊：
  -銀行：彰化銀行敦化分行009
  -戶名：財團法人北部台灣基督長老教會七星中會南園教會
  -帳號：5272-01-0070-1700
@@ -44,8 +44,9 @@
  -戶名：Nan-Yuan Presbyterian Church
  -帳號：5272-86-0203-3600
  -銀行英文名：Chang Hwa Bank, Tunhwa Branch.
- -銀行英文地址： No.71, Sec. 2, Dunhua S. Rd., Da’ an Dist., Taipei City 10682, Taiwan (R.O.C.)
- -銀行國際代碼 (Swift Code)：CCBCTWTP527
+ -銀行英文地址：
+       No.71, Sec. 2, Dunhua S. Rd., Da’ an Dist., Taipei City 10682, Taiwan (R.O.C.)
+ -銀行國際代碼 (Swift Code)：CCBCTWTP527</small></h2>
     </fieldset>
 
 
@@ -64,7 +65,7 @@
         <legend for="1134622971">奉獻日期</legend>
         <div class="form-group">
             <p class="help-block">（必填）匯款日期</p>
-            <input type="date" id="474594121_date" placeholder="5/25/2021" class="form-control" required>
+            <input type="date" id="474594121_date" placeholder="5/26/2021" class="form-control" required>
         </div>
     </fieldset>
 
@@ -168,12 +169,12 @@
         <legend for="118155398">備註</legend>
         <div class="form-group">
             <p class="help-block">（非必填）若有特定事項要說明請備註在此</p>
-            <textarea id="850343278" name="entry.850343278" class="form-control"></textarea>
+            <textarea id="850343278" name="entry.850343278" class="form-control" ></textarea>
         </div>
     </fieldset>
 
     <input type="hidden" name="fvv" value="1">
-    <input type="hidden" name="fbzx" value="-1732315091990877186">
+    <input type="hidden" name="fbzx" value="-515971533112982404">
     <!--
         CAVEAT: In multipages (multisection) forms, *pageHistory* field tells to google what sections we've currently completed.
         This usually starts as "0" for the first page, then "0,1" in the second page... up to "0,1,2..N" in n-th page.
@@ -181,7 +182,6 @@
         We're setting this to the total number of pages in this form because we're sending all fields from all the section together.
     -->
     <input type="hidden" name="pageHistory" value="0">
-
     <input class="btn btn-primary" type="submit" value="送出">
 </form>
 
