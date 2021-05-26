@@ -4814,7 +4814,8 @@ fieldset,
   border-radius: 5px;
   box-shadow: 1px 1px 3px #AAAAAA;
 }
-.prewrap {
+fieldset small,
+.submitted small {
   white-space: pre-wrap;
 }
 input,
