@@ -1,12 +1,6 @@
 // This script requires jQuery and jquery-form plugin
 // You can use these ones from Cloudflare CDN:
 
-if (prechecks) {
-    for (const precheck of prechecks) {
-        $('input[name="' + precheck + '"][value!="__other_option__"]').attr('checked', true);
-    }
-}
-
 $('.form-group').each(function () {
     let $formgroup = $(this);
     let $checkboxes = $formgroup.find('input[type="checkbox"]:required');
@@ -20,6 +14,13 @@ $('.form-group').each(function () {
         })
     }
 });
+
+if (prechecks) {
+    for (const precheck of prechecks) {
+        $('input[name="' + precheck + '"]').attr('required', false);
+        $('input[name="' + precheck + '"][value!="__other_option__"]').attr('checked', true);
+    }
+}
 
 $('#bootstrapForm').submit(function (event) {
     event.preventDefault()
