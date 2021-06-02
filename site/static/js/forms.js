@@ -15,7 +15,7 @@ $('.form-group').each(function () {
     }
 });
 
-if (prechecks) {
+if (typeof prechecks !== 'undefined') {
     for (const precheck of prechecks) {
         $('input[name="' + precheck + '"]').attr('required', false);
         $('input[name="' + precheck + '"][value!="__other_option__"]').attr('checked', true);
