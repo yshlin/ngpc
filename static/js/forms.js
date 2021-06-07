@@ -4,7 +4,7 @@
 $('.form-group').each(function () {
     let $formgroup = $(this);
     let $checkboxes = $formgroup.find('input[type="checkbox"]:required');
-    if ($checkboxes.size() > 0) {
+    if ($checkboxes.hasOwnProperty('size') && $checkboxes.size() > 0) {
         $checkboxes.change(function () {
             if ($formgroup.find('input[type="checkbox"]:checked').size() > 0) {
                 $checkboxes.attr('required', false)
@@ -30,17 +30,21 @@ $('#bootstrapForm').submit(function (event) {
         $('input[type="date"]').each(function () {
             let field_id = this.id.replace('_date', '');
             let dateField = $("#"+field_id+"_date").val();
-            let d = new Date(dateField)
-            extraData["entry."+field_id+"_year"] = d.getFullYear();
-            extraData["entry."+field_id+"_month"] = d.getMonth() + 1;
-            extraData["entry."+field_id+"_day"] = d.getUTCDate();
+            if (dateField) {
+                let d = new Date(dateField)
+                extraData["entry."+field_id+"_year"] = d.getFullYear();
+                extraData["entry."+field_id+"_month"] = d.getMonth() + 1;
+                extraData["entry."+field_id+"_day"] = d.getUTCDate();
+            }
         });
         $('input[type="time"]').each(function () {
             let field_id = this.id.replace('_time', '');
             let timeField = $("#"+field_id+"_time").val();
-            let values = timeField.split(':');
-            extraData["entry."+field_id+"_hour"] = values[0];
-            extraData["entry."+field_id+"_minute"] = values[1];
+            if (timeField) {
+                let values = timeField.split(':');
+                extraData["entry."+field_id+"_hour"] = values[0];
+                extraData["entry."+field_id+"_minute"] = values[1];
+            }
         });
     }
     $('#bootstrapForm').ajaxSubmit({
