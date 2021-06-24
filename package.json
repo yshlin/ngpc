@@ -8,7 +8,7 @@
     "lessc": "lessc site/static/css/index.less > site/static/css/index.css && lessc site/static/css/weekly.less > site/static/css/weekly.css",
     "render": "node controller.js",
     "prepare": "npm run load && npm run lessc && npm run render",
-    "upload": "git commit -a -m\"News Update\" && git push origin master && git subtree push --prefix site origin gh-pages",
+    "upload": "git add site/weekly/*.html && git commit -a -m\"News Update\" && git push origin master && git subtree push --prefix site origin gh-pages",
     "uploadsite": "git subtree push --prefix site origin gh-pages",
     "updatenews": "npm run prepare && npm run upload"
   },
