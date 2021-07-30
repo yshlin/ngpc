@@ -83,6 +83,6 @@ for (let key in models) {
 
 renderTemplate('index', models, directives);
 let tpl_postfix = weeklyModel['樣版'] === '聖禮典' ? '2' : '';
-console.log(tpl_postfix);
 renderTemplate('weekly/index' + tpl_postfix, weeklyModel, weeklyDirectives, 'weekly/index');
 renderTemplate('weekly/index' + tpl_postfix, weeklyModel, weeklyDirectives, 'weekly/'+weeklyModel['pubdate']);
+process.exit()  //Not sure why explicitly exit is required for windows or else it will hang
