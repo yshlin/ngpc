@@ -1,4 +1,5 @@
-const request = require('request');
+// const request = require('request');
+const https = require('https');
 const fs = require('fs');
 const config = require('./models/config.json');
 const MODEL_TYPE = 'gdoc';
@@ -36,7 +37,7 @@ function weeklyTransform(result) {
                     if (i > 0) {
                         newval += '; ';
                     }
-                    newval+= vals[i]['value'];
+                    newval += vals[i]['value'];
                 }
                 result[key] = newval;
             } else if (key.startsWith('報告') || key.startsWith('禱告')) {
@@ -56,9 +57,9 @@ function weeklyTransform(result) {
                 }
             } else if (key.startsWith('詩歌')) {
                 let sliceIndex = vals[0]['value'].indexOf('\n\n');
-                result[key+'標題'] = vals[0]['value'].slice(0, sliceIndex);
-                result[key+'內容'] = vals[0]['value'].slice(sliceIndex + 2);
-                if (result[key+'標題'] === result['回應詩歌']) {
+                result[key + '標題'] = vals[0]['value'].slice(0, sliceIndex);
+                result[key + '內容'] = vals[0]['value'].slice(sliceIndex + 2);
+                if (result[key + '標題'] === result['回應詩歌']) {
                     result['回應詩連結'] = 'song' + key.slice('詩歌'.length);
                 }
             } else if (key === '經文內容') {
@@ -68,7 +69,7 @@ function weeklyTransform(result) {
                         continue;
                     }
                     let verses = vals[i]['value'].replaceAll(/\n\n/g, '\n').split('\n');
-                    let contents = vals[i+1]['value'].replaceAll(/\n\n/g, '\n').split('\n');
+                    let contents = vals[i + 1]['value'].replaceAll(/\n\n/g, '\n').split('\n');
                     for (let j in verses) {
                         if (!verses.hasOwnProperty(j) || !contents.hasOwnProperty(j)) {
                             continue;
@@ -118,77 +119,119 @@ function kvrowTransform(result) {
 }
 
 module.exports.loadModel = function (model) {
-    request(API_PREFIX + model.key + API_SUFFIX, function (error, response, body) {
-        if (!error && response.statusCode === 200) {
-            let entries = JSON.parse(body).feed.entry;
-            let result = [];
-            let grid = [];
-            if (entries) {
-                for (let ek in entries) {
-                    if (!entries.hasOwnProperty(ek)) {
-                        continue;
-                    }
-                    let entry = entries[ek];
-                    for (let k in entry) {
-                        if (!entry.hasOwnProperty(k)) {
-                            continue;
-                        }
-                        if ('gs$cell' === k) {
-                            let row = parseInt(entry[k]['row']) - 1;
-                            let col = parseInt(entry[k]['col']) - 1;
-                            let val = entry[k]['$t'];
-                            if (undefined === val || "" === val) {
-                                continue;
-                            }
-                            if (!grid.hasOwnProperty(row) || !Array.isArray(grid[row])) {
-                                grid[row] = [];
-                            }
-                            if (!grid[row].hasOwnProperty(col)) {
-                                grid[row][col] = [];
-                            }
-                            grid[row][col] = val
-                        }
-                    }
-                }
-                let keys = grid[0].map(function (k) {
-                    return k.replace(/ /g, '');
+    return new Promise((resolve, reject) => {
+        https.get(API_PREFIX + model.key + API_SUFFIX, function (response) {
+            console.log(API_PREFIX + model.key + API_SUFFIX);
+            if (response.statusCode === 200) {
+                response.setEncoding('utf8');
+                let rawData = '';
+                response.on('data', (chunk) => {
+                    rawData += chunk;
                 });
-                for (let i in grid) {
-                    let r = {};
-                    if (!grid.hasOwnProperty(i) || '0' === i) {
-                        continue;
-                    }
-                    for (let j in grid[i]) {
-                        if (!grid[i].hasOwnProperty(j) || !keys.hasOwnProperty(j) || undefined === keys[j] || undefined === grid[i][j]) {
-                            continue;
+                response.on('end', () => {
+                    try {
+                        let entries = JSON.parse(rawData).feed.entry;
+                        let result = [];
+                        let grid = [];
+                        if (entries) {
+                            for (let ek in entries) {
+                                if (!entries.hasOwnProperty(ek)) {
+                                    continue;
+                                }
+                                let entry = entries[ek];
+                                for (let k in entry) {
+                                    if (!entry.hasOwnProperty(k)) {
+                                        continue;
+                                    }
+                                    if ('gs$cell' === k) {
+                                        let row = parseInt(entry[k]['row']) - 1;
+                                        let col = parseInt(entry[k]['col']) - 1;
+                                        let val = entry[k]['$t'];
+                                        if (undefined === val || "" === val) {
+                                            continue;
+                                        }
+                                        if (!grid.hasOwnProperty(row) || !Array.isArray(grid[row])) {
+                                            grid[row] = [];
+                                        }
+                                        if (!grid[row].hasOwnProperty(col)) {
+                                            grid[row][col] = [];
+                                        }
+                                        grid[row][col] = val
+                                    }
+                                }
+                            }
+                            let keys = grid[0].map(function (k) {
+                                return k.replace(/ /g, '');
+                            });
+                            for (let i in grid) {
+                                let r = {};
+                                if (!grid.hasOwnProperty(i) || '0' === i) {
+                                    continue;
+                                }
+                                for (let j in grid[i]) {
+                                    if (!grid[i].hasOwnProperty(j) || !keys.hasOwnProperty(j) || undefined === keys[j] || undefined === grid[i][j]) {
+                                        continue;
+                                    }
+                                    r[keys[j]] = grid[i][j];
+                                }
+                                result.push(r);
+                            }
+                            for (let t in model.transform) {
+                                if (!model.transform.hasOwnProperty(t)) {
+                                    continue;
+                                }
+                                if (model.transform[t] === 'kvrow') {
+                                    result = kvrowTransform(result);
+                                } else if (model.transform[t] === 'weekly') {
+                                    result = weeklyTransform(result);
+                                }
+                            }
+                            let output = 'models/' + model.name + '.json';
+                            fs.writeFileSync(output, JSON.stringify(result, null, 2));
+                            console.log(output + ' saved.')
                         }
-                        r[keys[j]] = grid[i][j];
+                        setTimeout(() => {
+                            resolve(model.name);
+                        }, 5000);
+                    } catch (e) {
+                        setTimeout(() => {
+                            reject(e);
+                        }, 5000);
                     }
-                    result.push(r);
-                }
-                for (let t in model.transform) {
-                    if (!model.transform.hasOwnProperty(t)) {
-                        continue;
-                    }
-                    if (model.transform[t] === 'kvrow') {
-                        result = kvrowTransform(result);
-                    } else if (model.transform[t] === 'weekly') {
-                        result = weeklyTransform(result);
-                    }
-                }
-                let output = 'models/' + model.name + '.json';
-                fs.writeFileSync(output, JSON.stringify(result, null, 2));
-                console.log(output + ' saved.')
+                });
+
+            } else {
+                setTimeout(() => {
+                    reject(response.statusCode);
+                }, 5000);
             }
-        }
+        });
     });
 };
 
+
 if (require.main === module) {
     //Load all gdoc models
-    for (let model of config.models) {
-        if (model.type === MODEL_TYPE) {
-            module.exports.loadModel(model);
-        }
+    mod = process.argv[2];
+    let prom = Promise.resolve();
+    for (let i = 0; i < config.models.length; i++) {
+        prom = prom.then((result) => {
+            let model = config.models[i];
+            if (model.type === MODEL_TYPE && (undefined === mod || model.name === mod)) {
+                console.log(result);
+                console.log(model.name);
+                return module.exports.loadModel(model);
+            } else {
+                return Promise.resolve();
+            }
+        }).catch(e => {
+            console.log(e);
+        });
     }
+    prom.then((result) => {
+        console.log(result);
+    }).catch(e => {
+        console.log(e);
+    });
+
 }

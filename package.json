@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "load": "node gdoc_loader.js",
+    "loadWeekly": "node gdoc_loader.js weekly",
     "lessc": "lessc site/static/css/index.less > site/static/css/index.css && lessc site/static/css/weekly.less > site/static/css/weekly.css",
     "render": "node controller.js",
     "prepare": "npm run load && npm run lessc && npm run render",
