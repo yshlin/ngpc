@@ -3,8 +3,8 @@ const https = require('https');
 const fs = require('fs');
 const config = require('./models/config.json');
 const MODEL_TYPE = 'gdoc';
-const API_PREFIX = 'https://spreadsheets.google.com/feeds/cells/';
-const API_SUFFIX = '/public/full?alt=json';
+const API_PREFIX = 'https://docs.google.com/spreadsheets/d/';
+const API_SUFFIX = '/gviz/tq?tqx=out:json&sheet=';
 
 module.exports = {};
 
@@ -118,10 +118,85 @@ function kvrowTransform(result) {
     return reshaped;
 }
 
+function parseGdocJsonToGridLegacy(entries) {
+    let grid = [];
+    if (entries) {
+        for (let ek in entries) {
+            if (!entries.hasOwnProperty(ek)) {
+                continue;
+            }
+            let entry = entries[ek];
+            for (let k in entry) {
+                if (!entry.hasOwnProperty(k)) {
+                    continue;
+                }
+                if ('gs$cell' === k) {
+                    let row = parseInt(entry[k]['row']) - 1;
+                    let col = parseInt(entry[k]['col']) - 1;
+                    let val = entry[k]['$t'];
+                    if (undefined === val || "" === val) {
+                        continue;
+                    }
+                    if (!grid.hasOwnProperty(row) || !Array.isArray(grid[row])) {
+                        grid[row] = [];
+                    }
+                    if (!grid[row].hasOwnProperty(col)) {
+                        grid[row][col] = [];
+                    }
+                    grid[row][col] = val
+                }
+            }
+        }
+    }
+    return grid;
+}
+
+function stripJsonp(jsonp) {
+    return jsonp.substring(jsonp.indexOf('{'), jsonp.lastIndexOf('}') + 1);
+}
+
+function parseGdocCtdpJsonToGrid(entries) {
+    let grid = [];
+    if (entries) {
+        let i = 0;
+        for (let er of entries) {
+            let entry = er.c;
+            let j = 0;
+            for (let val of entry) {
+                if (!grid.hasOwnProperty(i) || !Array.isArray(grid[i])) {
+                    grid[i] = [];
+                }
+                // if (!grid[i].hasOwnProperty(j)) {
+                //     grid[i][j] = [];
+                // }
+                if (val && val.hasOwnProperty('v') && null !== val.v) {
+                    grid[i][j] = val.v;
+                }
+                j++;
+            }
+            i++;
+        }
+    }
+    return grid;
+}
+
+function parseGdocCtdpJsonToHead(cols) {
+    let head = [];
+    if (cols) {
+        for (let col of cols) {
+            if (col.label) {
+                head.push(col.label);
+            }
+        }
+    }
+    return head;
+}
+
 module.exports.loadModel = function (model) {
     return new Promise((resolve, reject) => {
-        https.get(API_PREFIX + model.key + API_SUFFIX, function (response) {
-            console.log(API_PREFIX + model.key + API_SUFFIX);
+        let apiUrl = API_PREFIX + model.key + API_SUFFIX + model.subkey;
+        https.get(apiUrl, function (response) {
+            console.log(apiUrl);
             if (response.statusCode === 200) {
                 response.setEncoding('utf8');
                 let rawData = '';
@@ -130,66 +205,38 @@ module.exports.loadModel = function (model) {
                 });
                 response.on('end', () => {
                     try {
-                        let entries = JSON.parse(rawData).feed.entry;
+                        let t = JSON.parse(stripJsonp(rawData));
+                        let thead = t.table.cols;
+                        let entries = t.table.rows;
                         let result = [];
-                        let grid = [];
-                        if (entries) {
-                            for (let ek in entries) {
-                                if (!entries.hasOwnProperty(ek)) {
-                                    continue;
+                        let grid = parseGdocCtdpJsonToGrid(entries);
+                        let keys = parseGdocCtdpJsonToHead(thead).map(function (k) {
+                            return k.replace(/ /g, '');
+                        });
+                        for (let r of grid) {
+                            let row = {};
+                            let j = 0;
+                            for (let v of r) {
+                                if (v) {
+                                    row[keys[j]] = v;
                                 }
-                                let entry = entries[ek];
-                                for (let k in entry) {
-                                    if (!entry.hasOwnProperty(k)) {
-                                        continue;
-                                    }
-                                    if ('gs$cell' === k) {
-                                        let row = parseInt(entry[k]['row']) - 1;
-                                        let col = parseInt(entry[k]['col']) - 1;
-                                        let val = entry[k]['$t'];
-                                        if (undefined === val || "" === val) {
-                                            continue;
-                                        }
-                                        if (!grid.hasOwnProperty(row) || !Array.isArray(grid[row])) {
-                                            grid[row] = [];
-                                        }
-                                        if (!grid[row].hasOwnProperty(col)) {
-                                            grid[row][col] = [];
-                                        }
-                                        grid[row][col] = val
-                                    }
-                                }
+                                j++;
                             }
-                            let keys = grid[0].map(function (k) {
-                                return k.replace(/ /g, '');
-                            });
-                            for (let i in grid) {
-                                let r = {};
-                                if (!grid.hasOwnProperty(i) || '0' === i) {
-                                    continue;
-                                }
-                                for (let j in grid[i]) {
-                                    if (!grid[i].hasOwnProperty(j) || !keys.hasOwnProperty(j) || undefined === keys[j] || undefined === grid[i][j]) {
-                                        continue;
-                                    }
-                                    r[keys[j]] = grid[i][j];
-                                }
-                                result.push(r);
-                            }
-                            for (let t in model.transform) {
-                                if (!model.transform.hasOwnProperty(t)) {
-                                    continue;
-                                }
-                                if (model.transform[t] === 'kvrow') {
-                                    result = kvrowTransform(result);
-                                } else if (model.transform[t] === 'weekly') {
-                                    result = weeklyTransform(result);
-                                }
-                            }
-                            let output = 'models/' + model.name + '.json';
-                            fs.writeFileSync(output, JSON.stringify(result, null, 2));
-                            console.log(output + ' saved.')
+                            result.push(row);
                         }
+                        for (let t in model.transform) {
+                            if (!model.transform.hasOwnProperty(t)) {
+                                continue;
+                            }
+                            if (model.transform[t] === 'kvrow') {
+                                result = kvrowTransform(result);
+                            } else if (model.transform[t] === 'weekly') {
+                                result = weeklyTransform(result);
+                            }
+                        }
+                        let output = 'models/' + model.name + '.json';
+                        fs.writeFileSync(output, JSON.stringify(result, null, 2));
+                        console.log(output + ' saved.')
                         setTimeout(() => {
                             resolve(model.name);
                         }, 5000);
