@@ -107,7 +107,7 @@ function kvrowTransform(result) {
         let entry = result[k];
         if (entry.key !== '' || entry.key !== undefined) {
             let vars = [];
-            for (let i = 1; i < 10; i++) {
+            for (let i = 1; i <= 10; i++) {
                 if (entry['value' + i] && entry['value' + i] !== '') {
                     vars.push({value: entry['value' + i]});
                 }

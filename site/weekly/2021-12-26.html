@@ -110,6 +110,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li class="value">N/A</li>
     
         <li class="value">雲翔 元盈</li>
+    
+        <li class="value">采淇 頌溫</li>
     </ul>
     <ul class="下週服侍表">
         <li class="value">下週 1/2</li>
@@ -129,6 +131,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li class="value">林素心</li>
     
         <li class="value">方雲翔</li>
+    
+        <li class="value">黃副昌</li>
     </ul>
 </div>
 
@@ -330,5 +334,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
     </div>
 </footer>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+<script type="application/javascript">
+    function expandListHeights(lis) {
+        for (let i = 0; i < lis[0].length; i++) {
+            let heights = [];
+            for (let j = 0; j < lis.length; j++) {
+                heights.push(lis[j].get(i).offsetHeight);
+            }
+            let maxHeight = Math.max(...heights);
+            for (let j = 0; j < lis.length; j++) {
+                if (maxHeight > lis[j].get(i).offsetHeight) {
+                    console.log(i, j);
+                    lis[j].get(i).style.height = '' + maxHeight + 'px';
+                }
+            }
+        }
+    }
+    expandListHeights([$('.roles>li'), $('.本週服侍表>li'), $('.本週服侍表>li')]);
+    expandListHeights([$('.sequence>li'), $('.context>li'), $('.owner>li')]);
+</script>
 
 </body></html>
