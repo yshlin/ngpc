@@ -197,13 +197,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             let maxHeight = Math.max(...heights);
             for (let j = 0; j < lis.length; j++) {
                 if (maxHeight > lis[j].get(i).offsetHeight) {
-                    console.log(i, j);
                     lis[j].get(i).style.height = '' + maxHeight + 'px';
-                }
+                // }
             }
         }
     }
-    expandListHeights([$('.roles>li'), $('.本週服侍表>li'), $('.本週服侍表>li')]);
+    expandListHeights([$('.roles>li'), $('.本週服侍表>li'), $('.下週服侍表>li')]);
     expandListHeights([$('.sequence>li'), $('.context>li'), $('.owner>li')]);
 </script>
 </body>
