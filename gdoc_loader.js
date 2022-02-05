@@ -93,21 +93,22 @@ function weeklyTransform(result) {
                     result[key] = newvals
                 }
             } else if (key === '啟應文內容') {
-                let scriptureLines = vals[0]['value'].split("\n");
                 let newvals = [];
-                for (let i = 0; i < scriptureLines.length; ) {
-                    let call = "";
-                    let resp = "";
-                    if (scriptureLines[i].startsWith("（齊）")) {
-                        resp = scriptureLines[i];
-                    }
-                    else {
-                        call = scriptureLines[i];
+                if (vals[0] && vals[0].hasOwnProperty('value')) {
+                    let scriptureLines = vals[0]['value'].split("\n");
+                    for (let i = 0; i < scriptureLines.length;) {
+                        let call = "";
+                        let resp = "";
+                        if (scriptureLines[i].startsWith("（齊）")) {
+                            resp = scriptureLines[i];
+                        } else {
+                            call = scriptureLines[i];
+                            i++;
+                            resp = scriptureLines[i];
+                        }
                         i++;
-                        resp = scriptureLines[i];
+                        newvals.push({content: call, content2: resp});
                     }
-                    i++;
-                    newvals.push({content: call, content2: resp});
                 }
                 result[key] = newvals
             }
