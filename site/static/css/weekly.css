@@ -4770,6 +4770,9 @@ a:link {
   width: calc(100% - 30px);
   vertical-align: top;
 }
+.啟應文內容 .content2 {
+  font-weight: bolder;
+}
 @media only screen and (max-width: 1000px) {
   .container {
     width: 760px;
