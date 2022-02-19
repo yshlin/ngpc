@@ -4726,7 +4726,9 @@ a:link {
 .本週服侍表 > :nth-child(even),
 .下週服侍表 > :nth-child(even),
 .靈修日期 > :nth-child(even),
-.靈修進度 > :nth-child(even) {
+.靈修進度 > :nth-child(even),
+.小組名稱 > :nth-child(even),
+.小組時間 > :nth-child(even) {
   background: #dddddd;
 }
 .本週服侍表 :first-child,
