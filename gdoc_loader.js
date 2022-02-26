@@ -232,17 +232,31 @@ module.exports.loadModel = function (model) {
                         let keys = parseGdocCtdpJsonToHead(thead).map(function (k) {
                             return k.replace(/ /g, '');
                         });
-                        for (let r of grid) {
-                            let row = {};
-                            let j = 0;
-                            for (let v of r) {
-                                if (v) {
-                                    row[keys[j]] = v;
+                        if (keys.length > 0) {
+                            for (let r of grid) {
+                                let row = {};
+                                let j = 0;
+                                for (let v of r) {
+                                    if (v) {
+                                        row[keys[j]] = v;
+                                    }
+                                    j++;
                                 }
-                                j++;
+                                result.push(row);
                             }
-                            result.push(row);
+                        } else {
+                            keys = grid[0].map(function (k) {
+                                return k.replace(/ /g, '');
+                            });
+                            for (let i=1; i < grid.length; i++) {
+                                let row = {};
+                                for (let j=0; j < grid[i].length; j++) {
+                                    row[keys[j]] = grid[i][j];
+                                }
+                                result.push(row);
+                            }
                         }
+                        // console.log(result);
                         for (let t in model.transform) {
                             if (!model.transform.hasOwnProperty(t)) {
                                 continue;
