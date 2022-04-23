@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="stylesheet" href="../static/css/line-checkin.css"/>
     <title>LIFF Starter</title>
-    <script defer="defer" src="../static/js/libs/line.liff.js"></script>
     <script defer="defer" src="../static/js/line-checkin.js"></script>
 </head>
 <body>
-<div>
-    Hi <span id=""></span>,
+<div id="loading">
+    載入中請稍侯...
+</div>
+<div id="success" style="display: none">
+    Hi <span id="user"></span>,
     簽到完成
 </div>
 <iframe id="gas" width="0" height="0" style="border: 0"></iframe>
