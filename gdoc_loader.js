@@ -25,7 +25,7 @@ function weeklyTransform(result) {
                 result['pubdate'] = vals.replace(/[年月]/g, '-').replace(/[日]/g, '');
                 result['sitetitle'] = '主日：' + vals + ' - 南園教會週報';
             } else if ('本週服侍表' === key) {
-                result['敬拜'] = vals[3]['value']
+                result['敬拜'] = vals[3]['value'].split(' ')[0]
                 result['司會'] = vals[2]['value']
                 result['講員'] = vals[1]['value']
             } else if (['經卷全名', '經卷簡寫'].includes(key)) {
