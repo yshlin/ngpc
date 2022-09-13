@@ -4831,9 +4831,6 @@ header ul {
   width: 800px;
   height: 480px;
 }
-.live_cta {
-  text-align: center;
-}
 #about-nav a {
   width: 80px;
   text-align: center;
@@ -4907,6 +4904,24 @@ header ul {
   display: inline-block;
   width: 800px;
   text-align: left;
+}
+#live .live_cta {
+  margin-top: 30px;
+  text-align: center;
+}
+#live .live_cta a,
+#live .live_cta a:link {
+  background: #372D3B;
+  color: #FFF7B6;
+  border-radius: 5px;
+  padding: 15px 30px;
+  margin: 20px;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 3px;
+  vertical-align: middle;
+}
+#live .live_cta a:hover {
+  background: #b06f9c;
 }
 #announcements {
   display: block;
