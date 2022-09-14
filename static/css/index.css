@@ -4889,7 +4889,7 @@ header ul {
 }
 #live {
   display: block;
-  height: 800px;
+  height: 1000px;
   background: #a4e2fb;
   color: #372D3B;
   text-align: center;
@@ -5213,7 +5213,8 @@ header ul {
 @media only screen and (min-height: 800px) {
   #about,
   #announcements,
-  #activities {
+  #activities,
+  #live {
     height: 1000px;
   }
   #contact {
