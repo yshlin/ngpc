@@ -4919,6 +4919,7 @@ header ul {
   text-decoration: none;
   box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 3px;
   vertical-align: middle;
+  display: inline-block;
 }
 #live .live_cta a:hover {
   background: #b06f9c;
