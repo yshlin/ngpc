@@ -5213,8 +5213,7 @@ header ul {
 @media only screen and (min-height: 800px) {
   #about,
   #announcements,
-  #activities,
-  #live {
+  #activities {
     height: 1000px;
   }
   #contact {
