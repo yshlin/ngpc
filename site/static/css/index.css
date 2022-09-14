@@ -5060,6 +5060,21 @@ header ul {
 #contact .dedication a {
   text-decoration: underline;
 }
+#contact a.cta,
+#contact a:link.cta {
+  background: #FFF7B6;
+  color: #372D3B;
+  border-radius: 5px;
+  padding: 15px 30px;
+  margin: 20px;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 3px;
+  vertical-align: middle;
+  display: inline-block;
+}
+#contact a:hover.cta {
+  background: white;
+}
 #scroll-tip {
   position: fixed;
   display: block;
