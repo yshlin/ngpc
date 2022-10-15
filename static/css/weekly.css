@@ -4706,11 +4706,11 @@ a:link {
   display: inline-block;
   list-style: none;
 }
-.container > ul .context {
-  width: 150px;
-}
 .container > ul > li {
   line-height: 22px;
+}
+.container > ul.context {
+  width: 150px;
 }
 .本週服侍表,
 .下週服侍表 {
