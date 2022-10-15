@@ -4706,6 +4706,9 @@ a:link {
   display: inline-block;
   list-style: none;
 }
+.container > ul .context {
+  width: 150px;
+}
 .container > ul > li {
   line-height: 22px;
 }
