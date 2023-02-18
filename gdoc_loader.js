@@ -15,7 +15,7 @@ function weeklyTransform(result) {
         }
         let vals = result[key];
         if (key !== '' || key !== undefined) {
-            if (['日期', '中文日期', '題目', '回應詩歌', '信經', '樣版', '啟應文標題', '祝禱'].includes(key)) {
+            if (['日期', '中文日期', '題目', '回應詩歌', '信經', '樣版', '啟應文標題', '祝禱', '頭銜'].includes(key)) {
                 if (vals.hasOwnProperty(0)) {
                     result[key] = vals[0]['value'];
                     vals = result[key];
