@@ -1,55 +1,27 @@
 // This script requires jQuery and jquery-form plugin
 // You can use these ones from Cloudflare CDN:
-
-$('.form-group').each(function () {
-    let $formgroup = $(this);
-    let $checkboxes = $formgroup.find('input[type="checkbox"]:required');
-    if ($checkboxes.hasOwnProperty('size') && $checkboxes.size() > 0) {
-        $checkboxes.change(function () {
-            if ($formgroup.find('input[type="checkbox"]:checked').size() > 0) {
-                $checkboxes.attr('required', false)
-            } else {
-                $checkboxes.attr('required', true)
-            }
-        })
-    }
-});
-
-if (typeof prechecks !== 'undefined') {
-    for (const precheck of prechecks) {
-        $('input[name="' + precheck + '"]').attr('required', false);
-        $('input[name="' + precheck + '"][value!="__other_option__"]').attr('checked', true);
-    }
-}
-
+// <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+// <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
+//
 $('#bootstrapForm').submit(function (event) {
     event.preventDefault()
-    let extraData = {};
-    /* Parsing input date id=474594121 */
-    $('input[type="date"]').each(function () {
-        let field_id = this.id.replace('_date', '');
-        let dateField = this.value;
-        if (dateField) {
-            let d = new Date(dateField)
-            extraData["entry."+field_id+"_year"] = d.getFullYear();
-            extraData["entry."+field_id+"_month"] = d.getMonth() + 1;
-            extraData["entry."+field_id+"_day"] = d.getUTCDate();
+    var extraData = {}
+    {
+        /* Parsing input date id=474594121 */
+        var dateField = $("#474594121_date").val()
+        var timeField = $("#474594121_time").val()
+        let d = new Date(dateField)
+        if (!isNaN(d.getTime())) {
+            extraData["entry.474594121_year"] = d.getFullYear()
+            extraData["entry.474594121_month"] = d.getMonth() + 1
+            extraData["entry.474594121_day"] = d.getUTCDate()
         }
-    });
-    $('input[type="time"]').each(function () {
-        let field_id = this.id.replace('_time', '');
-        let timeField = this.value;
-        if (timeField) {
-            let values = timeField.split(':');
-            extraData["entry."+field_id+"_hour"] = values[0];
-            extraData["entry."+field_id+"_minute"] = values[1];
-            if (values.length > 2) {
-                extraData["entry."+field_id+"_second"] = values[2];
-            } else {
-                extraData["entry."+field_id+"_second"] = '00';
-            }
+        if (timeField && timeField.split(':').length >= 2) {
+            let values = timeField.split(':')
+            extraData["entry.474594121_hour"] = values[0]
+            extraData["entry.474594121_minute"] = values[1]
         }
-    });
+    }
     $('#bootstrapForm').ajaxSubmit({
         data: extraData,
         dataType: 'jsonp',  // This won't really work. It's just to use a GET instead of a POST to allow cookies from different domain.
@@ -60,5 +32,5 @@ $('#bootstrapForm').submit(function (event) {
             // You can also redirect the user to a custom thank-you page:
             window.location = 'thankyou.html'
         }
-    });
-});
+    })
+})
